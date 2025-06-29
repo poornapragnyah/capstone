@@ -1,0 +1,9 @@
+torch>=2.0.0
+torchvision>=0.15.0
+numpy==1.26.4
+opencv-python==4.8.1.78
+nibabel>=5.1.0
+tqdm>=4.65.0
+pillow>=10.0.0
+transformers>=4.30.0
+salesforce-lavis>=1.0.0 

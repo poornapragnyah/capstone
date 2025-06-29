@@ -1,0 +1,27 @@
+SEED-DV Dataset Reference
+
+Dataset Overview:
+- Purpose: EEG-to-video reconstruction
+- Video Format: 1920x1080 @ 24fps
+- Total Videos: 7 (10 minutes each)
+- Concepts per Video: 40 (random sequence)
+- Chinese Cue: "接下来您将看到：xx" (Next, you will see: xx)
+
+Directory Structure:
+1. Video/
+   - 7 video files (1st_10min.mp4 to 7th_10min.mp4)
+   - BLIP-caption/: Contains refined captions (one per 2-second clip)
+   - meta-info/: Contains additional metadata in .npy format
+     - Color information
+     - Face detection
+     - Human presence
+     - Labels
+     - Object count
+     - Motion information
+
+2. EEG/
+   - Channel information
+   - EEG recordings (not current focus)
+   - Contains the following files:
+        'demographic information.xlsx'   sub10.npy   sub12.npy   sub14.npy   sub16.npy   sub18.npy   sub1.npy            sub20.npy   sub3.npy   sub5.npy   sub7.npy   sub9.npy
+ readme.txt                      sub11.npy   sub13.npy   sub15.npy   sub17.npy   sub19.npy   sub1_session2.npy   sub2.npy    sub4.npy   sub6.npy   sub8.npy

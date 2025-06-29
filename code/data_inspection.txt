@@ -1,0 +1,82 @@
+SEED-DV EEG Dataset Initial Data Inspection
+Phase 1: Data Structure and Integrity Verification
+
+Found 21 .npy files:
+  1. ../SEED-DV/EEG/sub1.npy
+  2. ../SEED-DV/EEG/sub10.npy
+  3. ../SEED-DV/EEG/sub11.npy
+  4. ../SEED-DV/EEG/sub12.npy
+  5. ../SEED-DV/EEG/sub13.npy
+  6. ../SEED-DV/EEG/sub14.npy
+  7. ../SEED-DV/EEG/sub15.npy
+  8. ../SEED-DV/EEG/sub16.npy
+  9. ../SEED-DV/EEG/sub17.npy
+  10. ../SEED-DV/EEG/sub18.npy
+  ... and 11 more files
+
+Inspecting the first file for detailed analysis...
+
+============================================================
+INSPECTING: ../SEED-DV/EEG/sub1.npy
+============================================================
+Full file path: /home/poorna/capstone/code/../SEED-DV/EEG/sub1.npy
+NumPy array shape: (7, 62, 104000)
+NumPy array data type: float64
+
+Data snippet (first 5 time points for first 3 channels):
+Unexpected array dimensionality: 3D
+First few elements: [1.53464862e-05 2.11481732e-05 2.43434460e-05 1.67859241e-05
+ 2.02964306e-05 1.63856922e-05 1.61321986e-05 1.82791931e-05
+ 1.44822003e-05 1.27056078e-05]
+
+Data amplitude range:
+  Minimum: -0.001013
+  Maximum: 0.001715
+  Mean: -0.000000
+  Standard deviation: 0.000083
+
+============================================================
+SEED-DV DATASET EXPECTED SPECIFICATIONS
+============================================================
+EEG Recording Parameters:
+  - Sampling Rate: 1000 Hz
+  - Number of EEG Channels: 62 (10-10 system, active AgCl electrodes)
+  - EEG System: ESI NeuroScan System
+  - Auxiliary Data: EOG and ECG recorded simultaneously
+  - Eye-tracking: Tobii Pro Fusion at 250 Hz
+
+Video Stimulus Parameters:
+  - Resolution: 1920x1080
+  - Frame Rate: 24 fps
+  - Total Videos: 7 (10 minutes each)
+  - Concepts per Video: 40 random concepts
+  - Concept Block Structure: 3-second Chinese cue + 5 x 2-second video clips
+  - Total Concept Block Duration: 13 seconds
+
+Auxiliary Data Identification:
+  - EOG and ECG signals are recorded simultaneously with EEG
+  - These may appear as:
+    * Additional channels beyond the 62 EEG channels in the same .npy file
+    * Separate .npy files with naming conventions (e.g., sub1_EOG.npy, sub1_ECG.npy)
+    * Specific channel indices within the main array (check dataset documentation)
+
+Multiple Session Handling:
+  Two common approaches for handling multiple sessions per subject:
+  1. CONCATENATION (for continuous processing):
+     - Combine all sessions into a single continuous stream
+     - Suitable when no significant baseline shifts or setup changes occur
+     - Allows unified application of filters and artifact correction
+  2. SEPARATE PROCESSING (for robust handling):
+     - Preprocess each session independently
+     - More robust to inter-session variability (impedance changes, subject state)
+     - Combine data after individual session preprocessing
+     - Requires careful management of session-specific metadata alignment
+
+============================================================
+INSPECTION COMPLETE
+============================================================
+Next steps:
+1. Verify that the data shape matches expected specifications
+2. Check if auxiliary EOG/ECG channels are present
+3. Ensure data amplitude ranges are reasonable for EEG (typically μV range)
+4. Proceed to Phase 2: Full preprocessing pipeline implementation
