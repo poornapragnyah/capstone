@@ -1,0 +1,1051 @@
+#!/usr/bin/env python3
+"""
+SEED-DV EEG Dataset Enhanced Preprocessing Pipeline
+Improved version with better epoching, ASR, and artifact rejection
+
+This script implements the comprehensive preprocessing pipeline for SEED-DV dataset
+with enhanced artifact removal and proper epoch extraction.
+Data structure: (7_videos, 62_channels, 104000)
+"""
+
+import os
+import numpy as np
+import mne
+from pathlib import Path
+from mne.preprocessing import ICA
+from mne.decoding import Scaler
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore', category=RuntimeWarning)
+
+# Set MNE logging to WARNING to reduce verbose output
+mne.set_log_level('WARNING')
+
+class SEEDDVPreprocessor:
+    """Enhanced preprocessing pipeline for SEED-DV EEG data."""
+    
+    def __init__(self, input_dir="../SEED-DV/EEG", output_dir="preprocessed_eeg"):
+        self.input_dir = Path(input_dir)
+        self.output_dir = Path(output_dir)
+        self.sfreq = 1000  # Original sampling rate
+        self.target_sfreq = 250  # Target sampling rate after downsampling
+        self.n_eeg_channels = 62
+        
+        # Create output directory
+        self.output_dir.mkdir(exist_ok=True)
+        
+        # SEED-DV specific parameters
+        self.n_videos = 7
+        self.concepts_per_video = 40
+        self.concept_duration = 10.0  # seconds per concept
+        self.cue_duration = 3.0  # Chinese cue duration
+        
+        # Channel names for 62-channel 10-10 system
+        self.ch_names = [
+            'FP1', 'FPZ', 'FP2',
+            'AF3', 'AF4',
+            'F7', 'F5', 'F3', 'F1', 'FZ', 'F2', 'F4', 'F6', 'F8',
+            'FT7', 'FC5', 'FC3', 'FC1', 'FCZ', 'FC2', 'FC4', 'FC6', 'FT8',
+            'T7', 'C5', 'C3', 'C1', 'CZ', 'C2', 'C4', 'C6', 'T8',
+            'TP7', 'CP5', 'CP3', 'CP1', 'CPZ', 'CP2', 'CP4', 'CP6', 'TP8',
+            'P7', 'P5', 'P3', 'P1', 'PZ', 'P2', 'P4', 'P6', 'P8',
+            'PO7', 'PO5', 'PO3', 'POZ', 'PO4', 'PO6', 'PO8',
+            'CB1', 'O1', 'OZ', 'O2', 'CB2'
+        ]
+
+    def find_subject_files(self):
+        """Find all subject files and treat each session as a separate subject."""
+        files = list(self.input_dir.glob("*.npy"))
+        subjects = {}
+        
+        for file in files:
+            subject_id = file.stem  # Use full stem, e.g., sub1 or sub1_session2
+            subjects[subject_id] = [file]
+        
+        return subjects
+
+    def load_and_concatenate_sessions(self, subject_files):
+        """Load only the first session for a subject. Do NOT concatenate sessions."""
+        file_path = subject_files[0]
+        print(f"  Loading: {file_path.name}")
+        data = np.load(file_path)  # Shape: (7_videos, 62_channels, timepoints)
+        n_videos, n_channels, n_timepoints = data.shape
+        reshaped_data = data.transpose(1, 0, 2).reshape(n_channels, -1)
+        return reshaped_data
+
+    def create_mne_raw(self, data, subject_id):
+        """Create MNE Raw object from numpy array."""
+        # Create info object
+        ch_types = ['eeg'] * self.n_eeg_channels
+        info = mne.create_info(ch_names=self.ch_names[:self.n_eeg_channels], 
+                               sfreq=self.sfreq, ch_types=ch_types)
+        
+        # Create Raw object
+        raw = mne.io.RawArray(data, info)
+        
+        # Set montage (10-10 system)
+        montage = mne.channels.make_standard_montage('standard_1020')
+        raw.set_montage(montage, match_case=False, on_missing='ignore')
+        
+        return raw
+
+    def apply_filtering(self, raw):
+        """Apply filtering: high-pass (0.5 Hz), low-pass (80 Hz), notch (50 Hz)."""
+        print("  Applying filters...")
+        
+        # High-pass filter at 0.5 Hz
+        raw.filter(l_freq=0.5, h_freq=None, fir_design='firwin', 
+                   phase='zero', filter_length='auto')
+        
+        # Low-pass filter at 80 Hz (preserve gamma band)
+        raw.filter(l_freq=None, h_freq=80, fir_design='firwin', 
+                   phase='zero', filter_length='auto')
+        
+        # Notch filter at 50 Hz (China power line frequency)
+        raw.notch_filter(freqs=50, fir_design='firwin', phase='zero')
+        
+        return raw
+
+    def apply_rereferencing(self, raw):
+        """Apply Common Average Reference (CAR)."""
+        print("  Applying Common Average Reference...")
+        raw.set_eeg_reference(ref_channels='average', projection=True)
+        raw.apply_proj()
+        return raw
+
+    def detect_bad_channels(self, raw):
+        """Robust bad channel detection using amplitude, flatness, and correlation criteria."""
+        print("  Detecting bad channels (robust method)...")
+        data = raw.get_data()
+        ch_names = raw.ch_names
+        n_channels = data.shape[0]
+        bad_channels = set()
+
+        # 1. Flat channels (very low std)
+        channel_stds = np.std(data, axis=1)
+        mad_std = np.median(np.abs(channel_stds - np.median(channel_stds)))
+        flat_thresh = np.median(channel_stds) - 5 * mad_std
+        flat_chs = [ch_names[i] for i, std in enumerate(channel_stds) if std < flat_thresh or std < 1e-7]
+        if flat_chs:
+            print(f"    Flat channels: {flat_chs}")
+        bad_channels.update(flat_chs)
+
+        # 2. High-amplitude channels (robust z-score)
+        channel_max = np.max(np.abs(data), axis=1)
+        med_max = np.median(channel_max)
+        mad_max = np.median(np.abs(channel_max - med_max))
+        high_amp_thresh = med_max + 8 * mad_max
+        high_amp_chs = [ch_names[i] for i, val in enumerate(channel_max) if val > high_amp_thresh]
+        if high_amp_chs:
+            print(f"    High amplitude channels: {high_amp_chs}")
+        bad_channels.update(high_amp_chs)
+
+        # 3. Low correlation to median channel
+        median_channel = np.median(data, axis=0)
+        corrs = np.array([np.corrcoef(data[i], median_channel)[0, 1] for i in range(n_channels)])
+        low_corr_thresh = np.median(corrs) - 5 * np.median(np.abs(corrs - np.median(corrs)))
+        low_corr_chs = [ch_names[i] for i, c in enumerate(corrs) if c < low_corr_thresh or c < 0.4]
+        if low_corr_chs:
+            print(f"    Low correlation channels: {low_corr_chs}")
+        bad_channels.update(low_corr_chs)
+
+        # 4. Print summary and mark bads
+        bad_channels = list(sorted(bad_channels, key=lambda x: ch_names.index(x)))
+        if bad_channels:
+            print(f"    Marked {len(bad_channels)} bad channels: {bad_channels}")
+            raw.info['bads'] = bad_channels
+            raw.interpolate_bads(reset_bads=True)
+            print(f"    Interpolated {len(bad_channels)} bad channels")
+        else:
+            print("    No bad channels detected")
+        return raw
+
+    def apply_asr(self, raw):
+        """Simplified ASR with less aggressive artifact marking."""
+        print("  Applying Artifact Subspace Reconstruction (ASR)...")
+        
+        try:
+            # Import ASR from mne-icalabel or implement basic version
+            from mne.preprocessing import annotate_muscle_zscore
+            
+            # More conservative muscle artifact detection
+            threshold_muscle = 6  # Increased from 4 to 6 (less sensitive)
+            
+            # Annotate muscle artifacts
+            muscle_annot, muscle_scores = annotate_muscle_zscore(
+                raw, ch_type='eeg', threshold=threshold_muscle, 
+                min_length_good=0.5, filter_freq=[110, 140])  # Increased min_length_good
+            
+            if len(muscle_annot) > 0:
+                # Only keep the most severe artifacts (top 50%)
+                if len(muscle_annot) > 10:  # If too many artifacts detected
+                    # Sort by duration and keep only longer ones
+                    durations = muscle_annot.duration
+                    duration_threshold = np.percentile(durations, 70)  # Keep top 30%
+                    keep_mask = durations >= duration_threshold
+                    
+                    # Create new annotations with filtered artifacts
+                    filtered_annot = mne.Annotations(
+                        onset=muscle_annot.onset[keep_mask],
+                        duration=muscle_annot.duration[keep_mask],
+                        description=np.array(muscle_annot.description)[keep_mask]
+                    )
+                    raw.set_annotations(filtered_annot)
+                    print(f"    Marked {len(filtered_annot)} severe muscle artifact segments (filtered from {len(muscle_annot)})")
+                else:
+                    raw.set_annotations(muscle_annot)
+                    print(f"    Marked {len(muscle_annot)} muscle artifact segments")
+            else:
+                print("    No muscle artifacts detected by ASR")
+                    
+        except ImportError:
+            print("    ASR not available, using alternative muscle artifact detection")
+            # Simplified alternative that's less aggressive
+            data = raw.get_data()
+            
+            # Only process a few representative channels to avoid over-detection
+            representative_channels = [0, len(data)//2, len(data)-1]  # First, middle, last
+            
+            for ch_idx in representative_channels:
+                ch_data = data[ch_idx, :]
+                
+                # High-pass filter for muscle artifacts (>40 Hz instead of >30 Hz)
+                from scipy import signal
+                sos = signal.butter(4, 40, btype='high', fs=raw.info['sfreq'], output='sos')
+                high_freq_data = signal.sosfilt(sos, ch_data)
+                
+                # Find high-amplitude segments with more conservative threshold
+                envelope = np.abs(signal.hilbert(high_freq_data))
+                threshold = np.percentile(envelope, 99)  # Changed from 95 to 99
+                
+                artifact_mask = envelope > threshold * 3  # Increased multiplier
+                
+                # Create annotations for artifact segments
+                if np.any(artifact_mask):
+                    artifact_starts = np.where(np.diff(artifact_mask.astype(int)) == 1)[0]
+                    artifact_ends = np.where(np.diff(artifact_mask.astype(int)) == -1)[0]
+                    
+                    if len(artifact_starts) > 0 and len(artifact_ends) > 0:
+                        # Ensure matching starts and ends
+                        if len(artifact_starts) > 0 and len(artifact_ends) > 0:
+                            if artifact_starts[0] > artifact_ends[0]:
+                                artifact_ends = artifact_ends[1:]
+                            if len(artifact_starts) > len(artifact_ends):
+                                artifact_starts = artifact_starts[:-1]
+                                
+                            if len(artifact_starts) > 0:
+                                onset_times = artifact_starts / raw.info['sfreq']
+                                durations = (artifact_ends - artifact_starts) / raw.info['sfreq']
+                                
+                                # Only keep longer artifacts (>0.1 seconds)
+                                long_artifacts = durations > 0.1
+                                if np.any(long_artifacts):
+                                    annotations = mne.Annotations(
+                                        onset=onset_times[long_artifacts], 
+                                        duration=durations[long_artifacts], 
+                                        description=['muscle_artifact'] * np.sum(long_artifacts))
+                                    raw.set_annotations(annotations)
+                                    print(f"    Marked {np.sum(long_artifacts)} muscle artifacts")
+                                break  # Only annotate once for efficiency
+        
+        return raw
+
+    def apply_ica_artifact_removal(self, raw):
+        """Enhanced ICA for artifact removal with better component selection."""
+        print("  Applying ICA for artifact removal...")
+        
+        # Prepare data for ICA (use filtered data)
+        ica = ICA(n_components=0.95, max_iter='auto', random_state=42, method='fastica')
+        
+        # Fit ICA
+        print("    Fitting ICA...")
+        ica.fit(raw)
+        
+        # Enhanced EOG detection
+        frontal_channels = [ch for ch in raw.ch_names if any(fp in ch.lower() 
+                           for fp in ['fp1', 'fp2', 'fpz', 'af7', 'af8', 'f7', 'f8'])]
+        eog_indices = []
+        if frontal_channels:
+            try:
+                # Try multiple frontal channels for better EOG detection
+                for ch_name in frontal_channels[:3]:  # Try first 3 frontal channels
+                    try:
+                        eog_idx, eog_scores = ica.find_bads_eog(raw, ch_name=ch_name, threshold=2.5)
+                        eog_indices.extend(eog_idx)
+                    except:
+                        continue
+                
+                eog_indices = list(set(eog_indices))  # Remove duplicates
+                if eog_indices:
+                    print(f"    Found {len(eog_indices)} EOG components: {eog_indices}")
+            except Exception as e:
+                print(f"    EOG detection failed: {e}")
+        
+        # Enhanced ECG detection
+        ecg_indices = []
+        try:
+            ecg_indices, ecg_scores = ica.find_bads_ecg(raw, method='correlation', 
+                                                        threshold=0.8)  # More stringent
+            if ecg_indices:
+                print(f"    Found {len(ecg_indices)} ECG components: {ecg_indices}")
+        except Exception as e:
+            print("    No ECG components found or detection failed")
+        
+        # Enhanced muscle artifact detection
+        muscle_indices = []
+        try:
+            sources = ica.get_sources(raw)
+            source_data = sources.get_data()
+            
+            for i in range(min(source_data.shape[0], 20)):  # Check first 20 components
+                component = source_data[i, :]
+                
+                try:
+                    # More robust PSD calculation
+                    component_2d = component.reshape(1, -1)
+                    freqs, psd = mne.time_frequency.psd_array_welch(
+                        component_2d, sfreq=raw.info['sfreq'], 
+                        fmin=1, fmax=80, n_fft=min(2048, len(component)//4))
+                    
+                    # Calculate multiple frequency band ratios
+                    delta_mask = (freqs[0] >= 1) & (freqs[0] <= 4)
+                    theta_mask = (freqs[0] >= 4) & (freqs[0] <= 8)
+                    alpha_mask = (freqs[0] >= 8) & (freqs[0] <= 13)
+                    beta_mask = (freqs[0] >= 13) & (freqs[0] <= 30)
+                    gamma_mask = (freqs[0] >= 30) & (freqs[0] <= 80)
+                    
+                    if np.any(gamma_mask) and np.any(delta_mask):
+                        gamma_power = np.mean(psd[0, gamma_mask])
+                        delta_power = np.mean(psd[0, delta_mask])
+                        total_power = np.mean(psd[0, :])
+                        
+                        # Multiple criteria for muscle artifacts
+                        gamma_ratio = gamma_power / total_power if total_power > 0 else 0
+                        gamma_delta_ratio = gamma_power / delta_power if delta_power > 0 else 0
+                        
+                        # Check for high-frequency dominance
+                        high_freq_mask = freqs[0] > 40
+                        if np.any(high_freq_mask):
+                            high_freq_power = np.mean(psd[0, high_freq_mask])
+                            high_freq_ratio = high_freq_power / total_power if total_power > 0 else 0
+                            
+                            # More stringent criteria
+                            if (gamma_ratio > 0.4 or 
+                                gamma_delta_ratio > 10 or 
+                                high_freq_ratio > 0.3):
+                                muscle_indices.append(i)
+                                
+                except Exception as e:
+                    continue
+            
+            # Limit muscle components to avoid over-removal
+            muscle_indices = muscle_indices[:5]  # Max 5 muscle components
+            
+            if muscle_indices:
+                print(f"    Found {len(muscle_indices)} potential muscle components: {muscle_indices}")
+                
+        except Exception as e:
+            print(f"    Muscle artifact detection failed: {e}")
+        
+        # Combine all artifact components with safety limits
+        all_bad_components = list(set(eog_indices + ecg_indices + muscle_indices))
+        
+        # Safety check: don't remove too many components
+        max_components_to_remove = min(10, int(0.3 * ica.n_components_))
+        if len(all_bad_components) > max_components_to_remove:
+            print(f"    Limiting component removal from {len(all_bad_components)} to {max_components_to_remove}")
+            all_bad_components = all_bad_components[:max_components_to_remove]
+        
+        if all_bad_components:
+            print(f"    Removing {len(all_bad_components)} artifact components")
+            ica.exclude = all_bad_components
+            raw = ica.apply(raw.copy())  # Apply to copy to preserve original
+        else:
+            print("    No artifact components identified for removal")
+        
+        return raw, ica
+
+    def create_epochs_enhanced(self, raw, subject_files):
+        """Fixed epoch creation with more lenient rejection criteria."""
+        print("  Creating enhanced epochs...")
+        
+        # Load original data to understand structure better
+        original_data = []
+        for file_path in subject_files:
+            data = np.load(file_path)  # Shape: (7_videos, 62_channels, timepoints)
+            original_data.append(data)
+        
+        if len(original_data) > 1:
+            # Concatenate sessions
+            full_data = np.concatenate(original_data, axis=0)  # (total_videos, 62, timepoints)
+        else:
+            full_data = original_data[0]
+        
+        n_total_videos = full_data.shape[0]
+        timepoints_per_video = full_data.shape[2]
+        
+        # Calculate expected duration per video
+        expected_duration = timepoints_per_video / self.sfreq
+        print(f"    Expected duration per video: {expected_duration:.1f}s")
+        
+        # Create more epochs by extracting multiple segments per video
+        events = []
+        
+        # Strategy: Extract multiple overlapping epochs per video for better data utilization
+        video_samples = int(expected_duration * raw.info['sfreq'])
+        epoch_samples = int(10.2 * raw.info['sfreq'])  # 10s + 0.2s baseline
+        
+        current_sample = 0
+        epoch_id = 1
+        
+        for video_idx in range(n_total_videos):
+            video_start = current_sample
+            video_end = current_sample + video_samples
+            
+            # Extract multiple epochs from each video with shorter intervals
+            if expected_duration >= 20:  # If video is long enough
+                # Extract more epochs per video with overlap
+                step_size = int(8 * raw.info['sfreq'])  # 8 seconds step
+                n_possible_epochs = int((video_samples - epoch_samples) / step_size) + 1
+                n_epochs_per_video = min(8, max(1, n_possible_epochs))  # At least 1, max 8
+                
+                for epoch_in_video in range(n_epochs_per_video):
+                    epoch_start = video_start + epoch_in_video * step_size
+                    
+                    if epoch_start + epoch_samples <= video_end and epoch_start + epoch_samples <= raw.n_times:
+                        events.append([epoch_start + int(0.2 * raw.info['sfreq']), 0, epoch_id])
+                        epoch_id += 1
+            else:
+                # For shorter videos, create overlapping epochs every 5 seconds
+                step_size = int(5 * raw.info['sfreq'])  # 5 seconds step
+                n_possible_epochs = int((video_samples - epoch_samples) / step_size) + 1
+                
+                for epoch_in_video in range(max(1, n_possible_epochs)):
+                    epoch_start = video_start + epoch_in_video * step_size
+                    
+                    if epoch_start + epoch_samples <= video_end and epoch_start + epoch_samples <= raw.n_times:
+                        events.append([epoch_start + int(0.2 * raw.info['sfreq']), 0, epoch_id])
+                        epoch_id += 1
+            
+            current_sample = video_end
+        
+        if len(events) == 0:
+            # Fallback: create epochs every 10 seconds
+            total_duration = raw.n_times / raw.info['sfreq']
+            n_fallback_epochs = int(total_duration / 10)  # Every 10 seconds
+            
+            for i in range(n_fallback_epochs):
+                start_sample = int(i * 10 * raw.info['sfreq'] + 0.2 * raw.info['sfreq'])
+                if start_sample + epoch_samples <= raw.n_times:
+                    events.append([start_sample, 0, 1])
+            
+            print(f"    Using fallback: created {len(events)} epochs")
+        
+        events = np.array(events)
+        print(f"    Created {len(events)} epoch events")
+        
+        # Create epochs with much more lenient rejection criteria
+        epoch_duration = 10.0
+        baseline = (-0.2, 0.0)
+        
+        # Much more lenient rejection criteria
+        reject_criteria = {
+            'eeg': 300e-6,  # Increased from 150µV to 300µV
+        }
+        
+        flat_criteria = {
+            'eeg': 0.5e-6,  # Decreased from 1µV to 0.5µV
+        }
+        
+        try:
+            epochs = mne.Epochs(raw, events, event_id={str(i): i for i in range(1, epoch_id)}, 
+                            tmin=-0.2, tmax=epoch_duration, 
+                            baseline=baseline, preload=True,
+                            reject=reject_criteria, flat=flat_criteria,
+                            reject_by_annotation=False)  # Don't reject by annotation initially
+            
+            print(f"    Created {len(epochs)} epochs of {epoch_duration}s each")
+            print(f"    Rejected {len(events) - len(epochs)} epochs due to artifacts")
+            
+            # If still too few epochs, try without any rejection
+            if len(epochs) < 3:
+                print("    Too few epochs with rejection, trying without rejection...")
+                epochs = mne.Epochs(raw, events, event_id={str(i): i for i in range(1, min(epoch_id, len(events)+1))}, 
+                                tmin=-0.2, tmax=epoch_duration, 
+                                baseline=baseline, preload=True,
+                                reject=None, flat=None,
+                                reject_by_annotation=False)
+                print(f"    Created {len(epochs)} epochs without rejection")
+                
+        except Exception as e:
+            print(f"    Epoch creation with rejection failed: {e}")
+            # Try without rejection
+            epochs = mne.Epochs(raw, events, event_id={str(i): i for i in range(1, min(epoch_id, len(events)+1))}, 
+                            tmin=-0.2, tmax=epoch_duration, 
+                            baseline=baseline, preload=True,
+                            reject=None, flat=None,
+                            reject_by_annotation=False)
+            print(f"    Created {len(epochs)} epochs without rejection")
+        
+        return epochs
+
+    def downsample_data(self, epochs):
+        """Downsample to target frequency."""
+        print(f"  Downsampling from {epochs.info['sfreq']} Hz to {self.target_sfreq} Hz...")
+        epochs.resample(self.target_sfreq, npad='auto')
+        return epochs
+
+    def apply_advanced_normalization(self, epochs):
+        """Fixed normalization with more conservative outlier removal."""
+        print("  Applying advanced Z-score normalization...")
+        
+        # Get data
+        data = epochs.get_data()  # Shape: (n_epochs, n_channels, n_times)
+        original_n_epochs = data.shape[0]
+        
+        # Step 1: More conservative outlier epoch removal
+        epoch_max_vals = np.max(np.abs(data), axis=(1, 2))  # Max absolute value per epoch
+        epoch_threshold = np.percentile(epoch_max_vals, 98)  # Changed from 95 to 98
+        
+        good_epochs = epoch_max_vals <= epoch_threshold * 3  # Changed from 2x to 3x
+        
+        if np.sum(~good_epochs) > 0:
+            print(f"    Removing {np.sum(~good_epochs)} outlier epochs")
+            data = data[good_epochs]
+            # Update epochs object
+            epochs = epochs[good_epochs]
+        
+        # Only proceed if we have enough epochs
+        if data.shape[0] < 2:
+            print("    Warning: Too few epochs for normalization, skipping outlier removal")
+            data = epochs.get_data()  # Use all epochs
+        
+        # Step 2: Z-score normalization per channel across all epochs
+        data = epochs.get_data()  # Get updated data
+        
+        for ch_idx in range(data.shape[1]):
+            channel_data = data[:, ch_idx, :].flatten()  # Flatten across epochs and time
+            
+            # Use regular statistics instead of robust for better stability
+            mean_val = np.mean(channel_data)
+            std_val = np.std(channel_data)
+            
+            if std_val > 1e-10:  # Avoid division by very small numbers
+                data[:, ch_idx, :] = (data[:, ch_idx, :] - mean_val) / std_val
+            else:
+                # If std is too small, just center the data
+                data[:, ch_idx, :] = data[:, ch_idx, :] - mean_val
+        
+        # Update epochs data
+        epochs._data = data
+        
+        print(f"    Normalized data shape: {data.shape}")
+        if original_n_epochs != data.shape[0]:
+            print(f"    Kept {data.shape[0]}/{original_n_epochs} epochs after outlier removal")
+        
+        return epochs
+
+    def save_preprocessed_data(self, epochs, subject_id):
+        """Save preprocessed epochs data with enhanced metadata."""
+        print("  Saving preprocessed data...")
+        
+        # Get data in format suitable for deep learning
+        data = epochs.get_data()  # Shape: (n_epochs, n_channels, n_timepoints)
+        
+        # Save as numpy array
+        output_file = self.output_dir / f"{subject_id}_preprocessed.npy"
+        np.save(output_file, data)
+        
+        # Enhanced metadata
+        metadata = {
+            'subject_id': subject_id,
+            'shape': data.shape,
+            'sfreq': epochs.info['sfreq'],
+            'ch_names': epochs.ch_names,
+            'n_epochs': len(epochs),
+            'epoch_duration': 10.0,
+            'baseline': (-0.2, 0.0),
+            'preprocessing_steps': [
+                'filtering (0.5-80 Hz, notch 50 Hz)',
+                'common_average_reference',
+                'enhanced_bad_channel_detection',
+                'ASR_artifact_subspace_reconstruction',
+                'enhanced_ICA_artifact_removal',
+                'enhanced_epoching_with_rejection',
+                'downsampling (250 Hz)',
+                'robust_z_score_normalization',
+                'outlier_epoch_removal'
+            ],
+            'quality_metrics': {
+                'mean_amplitude': float(np.mean(np.abs(data))),
+                'std_amplitude': float(np.std(data)),
+                'snr_estimate': float(np.mean(data**2) / np.var(data)),
+                'n_interpolated_channels': len(getattr(epochs.info, 'bads', [])),
+            },
+            'preprocessing_parameters': {
+                'highpass_freq': 0.5,
+                'lowpass_freq': 80.0,
+                'notch_freq': 50.0,
+                'target_sfreq': self.target_sfreq,
+                'reject_threshold_eeg': 150e-6,
+                'flat_threshold_eeg': 1e-6,
+            }
+        }
+        
+        metadata_file = self.output_dir / f"{subject_id}_metadata.npy"
+        np.save(metadata_file, metadata)
+        
+        print(f"    Saved: {output_file}")
+        print(f"    Data shape: {data.shape}")
+        print(f"    Quality: mean_amp={metadata['quality_metrics']['mean_amplitude']:.4f}, "
+              f"std_amp={metadata['quality_metrics']['std_amplitude']:.4f}")
+        
+        return output_file
+
+    def plot_preprocessing_comparison(self, raw_before, raw_after, subject_id):
+        """Enhanced preprocessing comparison plots."""
+        print("  Generating enhanced preprocessing comparison plots...")
+        
+        try:
+            fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+            
+            # Before preprocessing - PSD
+            psd_before, freqs_before = mne.time_frequency.psd_array_welch(
+                raw_before.get_data(), sfreq=raw_before.info['sfreq'], 
+                fmin=0.5, fmax=100, n_fft=2048)
+            
+            # After preprocessing - PSD
+            psd_after, freqs_after = mne.time_frequency.psd_array_welch(
+                raw_after.get_data(), sfreq=raw_after.info['sfreq'], 
+                fmin=0.5, fmax=100, n_fft=2048)
+            
+            # Plot 1: Power Spectral Density comparison
+            axes[0, 0].semilogy(freqs_before, np.mean(psd_before, axis=0), 
+                            label='Before', alpha=0.8, color='red')
+            axes[0, 0].semilogy(freqs_after, np.mean(psd_after, axis=0), 
+                            label='After', alpha=0.8, color='blue')
+            axes[0, 0].set_xlabel('Frequency (Hz)')
+            axes[0, 0].set_ylabel('Power Spectral Density (V²/Hz)')
+            axes[0, 0].set_title('PSD Comparison')
+            axes[0, 0].legend()
+            axes[0, 0].grid(True, alpha=0.3)
+            
+            # Plot 2: Time domain comparison (first 10 seconds)
+            duration = min(10, raw_before.n_times / raw_before.info['sfreq'])
+            n_samples = int(duration * raw_before.info['sfreq'])
+            
+            time_vec_before = np.arange(n_samples) / raw_before.info['sfreq']
+            time_vec_after = np.arange(min(n_samples, raw_after.n_times)) / raw_after.info['sfreq']
+            
+            # Select a representative channel (e.g., Cz)
+            ch_idx = raw_before.ch_names.index('Cz') if 'Cz' in raw_before.ch_names else 0
+            
+            axes[0, 1].plot(time_vec_before, 
+                        raw_before.get_data()[ch_idx, :n_samples] * 1e6, 
+                        label='Before', alpha=0.7, color='red')
+            axes[0, 1].plot(time_vec_after, 
+                        raw_after.get_data()[ch_idx, :len(time_vec_after)] * 1e6, 
+                        label='After', alpha=0.7, color='blue')
+            axes[0, 1].set_xlabel('Time (s)')
+            axes[0, 1].set_ylabel('Amplitude (µV)')
+            axes[0, 1].set_title(f'Time Domain - Channel {raw_before.ch_names[ch_idx]}')
+            axes[0, 1].legend()
+            axes[0, 1].grid(True, alpha=0.3)
+            
+            # Plot 3: Channel variance comparison
+            var_before = np.var(raw_before.get_data(), axis=1)
+            var_after = np.var(raw_after.get_data(), axis=1)
+            
+            x_pos = np.arange(len(var_before))
+            width = 0.35
+            
+            axes[1, 0].bar(x_pos - width/2, var_before * 1e12, width, 
+                        label='Before', alpha=0.7, color='red')
+            axes[1, 0].bar(x_pos + width/2, var_after * 1e12, width, 
+                        label='After', alpha=0.7, color='blue')
+            axes[1, 0].set_xlabel('Channel Index')
+            axes[1, 0].set_ylabel('Variance (µV²)')
+            axes[1, 0].set_title('Channel Variance Comparison')
+            axes[1, 0].legend()
+            axes[1, 0].set_xticks(x_pos[::10])  # Show every 10th channel
+            axes[1, 0].set_xticklabels([raw_before.ch_names[i] for i in x_pos[::10]], 
+                                    rotation=45)
+            
+            # Plot 4: Frequency band power comparison
+            # Define frequency bands
+            bands = {
+                'Delta (0.5-4 Hz)': (0.5, 4),
+                'Theta (4-8 Hz)': (4, 8),
+                'Alpha (8-13 Hz)': (8, 13),
+                'Beta (13-30 Hz)': (13, 30),
+                'Gamma (30-80 Hz)': (30, 80)
+            }
+            
+            band_names = list(bands.keys())
+            power_before = []
+            power_after = []
+            
+            for band_name, (low_freq, high_freq) in bands.items():
+                # Calculate power in frequency band
+                freq_mask_before = (freqs_before >= low_freq) & (freqs_before <= high_freq)
+                freq_mask_after = (freqs_after >= low_freq) & (freqs_after <= high_freq)
+                
+                if np.any(freq_mask_before) and np.any(freq_mask_after):
+                    power_before.append(np.mean(np.mean(psd_before[:, freq_mask_before], axis=1)))
+                    power_after.append(np.mean(np.mean(psd_after[:, freq_mask_after], axis=1)))
+                else:
+                    power_before.append(0)
+                    power_after.append(0)
+            
+            x_pos_bands = np.arange(len(band_names))
+            
+            axes[1, 1].bar(x_pos_bands - width/2, power_before, width, 
+                        label='Before', alpha=0.7, color='red')
+            axes[1, 1].bar(x_pos_bands + width/2, power_after, width, 
+                        label='After', alpha=0.7, color='blue')
+            axes[1, 1].set_xlabel('Frequency Bands')
+            axes[1, 1].set_ylabel('Average Power (V²/Hz)')
+            axes[1, 1].set_title('Frequency Band Power Comparison')
+            axes[1, 1].legend()
+            axes[1, 1].set_xticks(x_pos_bands)
+            axes[1, 1].set_xticklabels(band_names, rotation=45)
+            axes[1, 1].set_yscale('log')
+            
+            plt.tight_layout()
+            
+            # Save plot
+            plot_file = self.output_dir / f"{subject_id}_preprocessing_comparison.png"
+            plt.savefig(plot_file, dpi=300, bbox_inches='tight')
+            plt.close()
+            
+            print(f"    Saved comparison plot: {plot_file}")
+            
+        except Exception as e:
+            print(f"    Error generating plots: {e}")
+
+    def process_subject(self, subject_id, subject_files):
+        """Complete preprocessing pipeline for a single subject."""
+        print(f"\nProcessing subject: {subject_id}")
+        print(f"Files: {[f.name for f in subject_files]}")
+        
+        try:
+            # Step 1: Load and concatenate sessions
+            print("Step 1: Loading data...")
+            concatenated_data = self.load_and_concatenate_sessions(subject_files)
+            print(f"  Final data shape: {concatenated_data.shape}")
+            
+            # Step 2: Create MNE Raw object
+            print("Step 2: Creating MNE Raw object...")
+            raw = self.create_mne_raw(concatenated_data, subject_id)
+            raw_original = raw.copy()  # Keep original for comparison
+            
+            # Step 3: Apply filtering
+            print("Step 3: Filtering...")
+            raw = self.apply_filtering(raw)
+            
+            # Step 4: Apply rereferencing
+            print("Step 4: Rereferencing...")
+            raw = self.apply_rereferencing(raw)
+            
+            # Step 5: Detect and interpolate bad channels
+            print("Step 5: Bad channel detection...")
+            raw = self.detect_bad_channels(raw)
+            
+            # Step 6: Apply ASR
+            print("Step 6: Artifact Subspace Reconstruction...")
+            raw = self.apply_asr(raw)
+            
+            # Step 7: Apply ICA
+            print("Step 7: ICA artifact removal...")
+            raw, ica = self.apply_ica_artifact_removal(raw)
+            
+            # Step 8: Create epochs
+            print("Step 8: Creating epochs...")
+            epochs = self.create_epochs_enhanced(raw, subject_files)
+            
+            if len(epochs) == 0:
+                print(f"  WARNING: No valid epochs created for {subject_id}")
+                return None
+            
+            # Step 9: Downsample
+            print("Step 9: Downsampling...")
+            epochs = self.downsample_data(epochs)
+            
+            # Step 10: Normalization
+            print("Step 10: Normalization...")
+            epochs = self.apply_advanced_normalization(epochs)
+            
+            # Step 11: Save data
+            print("Step 11: Saving data...")
+            output_file = self.save_preprocessed_data(epochs, subject_id)
+            
+            # Step 12: Generate comparison plots
+            print("Step 12: Generating plots...")
+            self.plot_preprocessing_comparison(raw_original, raw, subject_id)
+            
+            print(f"✓ Successfully processed {subject_id}")
+            print(f"  Output: {output_file}")
+            print(f"  Final epochs: {len(epochs)}")
+            print(f"  Data shape: {epochs.get_data().shape}")
+            
+            return output_file
+            
+        except Exception as e:
+            print(f"✗ Error processing {subject_id}: {e}")
+            import traceback
+            traceback.print_exc()
+            return None
+
+    def run_preprocessing_pipeline(self):
+        """Run the complete preprocessing pipeline for all subjects."""
+        print("="*60)
+        print("SEED-DV EEG Dataset Enhanced Preprocessing Pipeline")
+        print("="*60)
+        
+        # Find all subject files
+        subjects = self.find_subject_files()
+        print(f"\nFound {len(subjects)} subjects:")
+        for subject_id, files in subjects.items():
+            print(f"  {subject_id}: {len(files)} session(s)")
+        
+        # Process each subject
+        successful_subjects = []
+        failed_subjects = []
+        
+        for subject_id, subject_files in subjects.items():
+            result = self.process_subject(subject_id, subject_files)
+            if result:
+                successful_subjects.append(subject_id)
+            else:
+                failed_subjects.append(subject_id)
+        
+        # Summary
+        print("\n" + "="*60)
+        print("PREPROCESSING SUMMARY")
+        print("="*60)
+        print(f"Total subjects: {len(subjects)}")
+        print(f"Successfully processed: {len(successful_subjects)}")
+        print(f"Failed: {len(failed_subjects)}")
+        
+        if failed_subjects:
+            print(f"Failed subjects: {failed_subjects}")
+        
+        print(f"\nPreprocessed data saved in: {self.output_dir}")
+        print("="*60)
+
+    def generate_seeddv_events(self, sfreq=1000, onset_time_first_cue_sec=5.0):
+        """
+        Generate precise event timings for SEED-DV dataset based on experimental protocol.
+        
+        Parameters:
+        -----------
+        sfreq : int, default=1000
+            EEG sampling frequency in Hz
+        onset_time_first_cue_sec : float, default=5.0
+            Time in seconds from EEG recording start to first hint/cue onset
+            
+        Returns:
+        --------
+        events : numpy.ndarray
+            MNE-compatible events array of shape (280, 3) with columns [sample, 0, event_id]
+            Each event marks the onset of a 10-second video concept segment
+        """
+        import numpy as np
+        
+        # Protocol parameters
+        n_main_blocks = 7
+        concepts_per_block = 40
+        hint_duration_sec = 3.0
+        video_duration_sec = 10.0
+        concept_block_duration_sec = hint_duration_sec + video_duration_sec  # 13 seconds
+        rest_between_blocks_sec = 30.0
+        
+        # Calculate total expected events
+        total_concepts = n_main_blocks * concepts_per_block  # 280
+        
+        events = []
+        event_id = 1
+        
+        # Current time tracker (in seconds)
+        current_time_sec = onset_time_first_cue_sec
+        
+        for main_block in range(n_main_blocks):
+            print(f"  Generating events for main block {main_block + 1}/7...")
+            
+            for concept in range(concepts_per_block):
+                # Time when hint starts
+                hint_start_sec = current_time_sec
+                
+                # Time when video concept starts (after 3-second hint)
+                video_start_sec = hint_start_sec + hint_duration_sec
+                
+                # Convert to sample index
+                video_start_sample = int(video_start_sec * sfreq)
+                
+                # Add event: [sample, 0, event_id]
+                events.append([video_start_sample, 0, event_id])
+                
+                # Move to next concept block
+                current_time_sec += concept_block_duration_sec
+                event_id += 1
+            
+            # Add rest period between main blocks (except after the last block)
+            if main_block < n_main_blocks - 1:  # Not the last block
+                current_time_sec += rest_between_blocks_sec
+                print(f"    Added {rest_between_blocks_sec}s rest after block {main_block + 1}")
+        
+        # Convert to numpy array
+        events = np.array(events, dtype=int)
+        
+        # Validation
+        assert events.shape[0] == total_concepts, f"Expected {total_concepts} events, got {events.shape[0]}"
+        assert events.shape[1] == 3, f"Events array should have 3 columns, got {events.shape[1]}"
+        
+        print(f"  Generated {len(events)} events successfully")
+        print(f"  First event at sample: {events[0, 0]} (time: {events[0, 0]/sfreq:.2f}s)")
+        print(f"  Last event at sample: {events[-1, 0]} (time: {events[-1, 0]/sfreq:.2f}s)")
+        print(f"  Total experiment duration: {events[-1, 0]/sfreq + video_duration_sec:.2f}s")
+        
+        return events
+
+
+    # Alternative function with more detailed timing validation
+    def generate_seeddv_events_with_validation(self, sfreq=1000, onset_time_first_cue_sec=5.0, 
+                                            raw_duration_sec=None):
+        """
+        Generate SEED-DV events with additional validation against raw data duration.
+        
+        Parameters:
+        -----------
+        sfreq : int, default=1000
+            EEG sampling frequency in Hz
+        onset_time_first_cue_sec : float, default=5.0
+            Time in seconds from EEG recording start to first hint/cue onset
+        raw_duration_sec : float, optional
+            Total duration of raw EEG data in seconds for validation
+            
+        Returns:
+        --------
+        events : numpy.ndarray
+            MNE-compatible events array of shape (280, 3)
+        timing_info : dict
+            Detailed timing information for debugging
+        """
+        import numpy as np
+        
+        # Generate basic events
+        events = self.generate_seeddv_events(sfreq, onset_time_first_cue_sec)
+        
+        # Calculate detailed timing information
+        timing_info = {
+            'n_events': len(events),
+            'first_event_time_sec': events[0, 0] / sfreq,
+            'last_event_time_sec': events[-1, 0] / sfreq,
+            'expected_experiment_end_sec': events[-1, 0] / sfreq + 10.0,  # +10s for last video
+            'average_inter_event_interval_sec': np.mean(np.diff(events[:, 0])) / sfreq,
+            'event_timing_assumptions': {
+                'onset_first_cue_sec': onset_time_first_cue_sec,
+                'hint_duration_sec': 3.0,
+                'video_duration_sec': 10.0,
+                'rest_between_blocks_sec': 30.0,
+                'sampling_freq_hz': sfreq
+            }
+        }
+        
+        # Validation against raw data duration if provided
+        if raw_duration_sec is not None:
+            timing_info['raw_duration_sec'] = raw_duration_sec
+            timing_info['duration_check'] = {
+                'sufficient_duration': raw_duration_sec >= timing_info['expected_experiment_end_sec'],
+                'margin_sec': raw_duration_sec - timing_info['expected_experiment_end_sec']
+            }
+            
+            if not timing_info['duration_check']['sufficient_duration']:
+                print(f"WARNING: Raw data duration ({raw_duration_sec:.1f}s) may be insufficient")
+                print(f"         Expected experiment end: {timing_info['expected_experiment_end_sec']:.1f}s")
+            else:
+                print(f"✓ Raw data duration validation passed (margin: {timing_info['duration_check']['margin_sec']:.1f}s)")
+        
+        return events, timing_info
+
+
+    # Integration function to replace your current epoch creation
+    def create_epochs_with_inferred_events(self, raw, sfreq=None, onset_time_first_cue_sec=5.0,
+                                        tmin=-0.2, tmax=10.0, baseline=(-0.2, 0.0),
+                                        reject=None, flat=None):
+        """
+        Drop-in replacement for epoch creation using inferred SEED-DV event timings.
+        
+        Parameters:
+        -----------
+        raw : mne.io.Raw
+            Raw EEG data object
+        sfreq : int, optional
+            Sampling frequency (will use raw.info['sfreq'] if not provided)
+        onset_time_first_cue_sec : float, default=5.0
+            Time offset for first concept
+        tmin, tmax : float
+            Epoch time bounds relative to event onset
+        baseline : tuple
+            Baseline correction period
+        reject, flat : dict or None
+            Artifact rejection criteria
+            
+        Returns:
+        --------
+        epochs : mne.Epochs
+            Epochs object with 280 concept events (or fewer after rejection)
+        events : numpy.ndarray
+            Generated events array
+        """
+        import mne
+        
+        if sfreq is None:
+            sfreq = raw.info['sfreq']
+        
+        # Generate events using the inferred timing
+        print("Generating SEED-DV events using protocol-based inference...")
+        events = self.generate_seeddv_events(sfreq=sfreq, 
+                                    onset_time_first_cue_sec=onset_time_first_cue_sec)
+        
+        # Validate events against raw data duration
+        raw_duration_sec = raw.n_times / raw.info['sfreq']
+        max_event_time = (events[-1, 0] + int(tmax * sfreq)) / sfreq
+        
+        if max_event_time > raw_duration_sec:
+            print(f"WARNING: Some events extend beyond raw data duration")
+            print(f"         Raw duration: {raw_duration_sec:.1f}s")
+            print(f"         Latest event end: {max_event_time:.1f}s")
+            
+            # Filter events that fit within the raw data
+            valid_events = []
+            for event in events:
+                event_end_sample = event[0] + int(tmax * sfreq)
+                if event_end_sample < raw.n_times:
+                    valid_events.append(event)
+            
+            events = np.array(valid_events)
+            print(f"         Using {len(events)} valid events")
+        
+        # Create event_id dictionary
+        event_id = {f'concept_{i+1}': i+1 for i in range(len(events))}
+        
+        # Create epochs
+        epochs = mne.Epochs(raw, events, event_id=event_id,
+                        tmin=tmin, tmax=tmax, baseline=baseline,
+                        reject=reject, flat=flat, preload=True)
+        
+        print(f"Created {len(epochs)} epochs from {len(events)} events")
+        
+        return epochs, events
+
+# Main execution
+if __name__ == "__main__":
+    # Initialize preprocessor
+    preprocessor = SEEDDVPreprocessor(
+        input_dir="../SEED-DV/EEG",  # Adjust path as needed
+        output_dir="preprocessed_eeg_6"
+    )
+    
+    # Run preprocessing pipeline
+    preprocessor.run_preprocessing_pipeline()

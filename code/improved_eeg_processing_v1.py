@@ -5,7 +5,7 @@ Improved version with better epoching, ASR, and artifact rejection
 
 This script implements the comprehensive preprocessing pipeline for SEED-DV dataset
 with enhanced artifact removal and proper epoch extraction.
-Data structure: (7_videos, 62_channels, timepoints)
+Data structure: (7_videos, 62_channels, 104000)
 """
 
 import os
@@ -42,60 +42,36 @@ class SEEDDVPreprocessor:
         
         # Channel names for 62-channel 10-10 system
         self.ch_names = [
-            'Fp1', 'Fpz', 'Fp2', 'AF9', 'AF7', 'AF5', 'AF3', 'AF1', 'AFz', 'AF2', 'AF4', 'AF6', 'AF8', 'AF10',
-            'F9', 'F7', 'F5', 'F3', 'F1', 'Fz', 'F2', 'F4', 'F6', 'F8', 'F10',
-            'FT9', 'FT7', 'FC5', 'FC3', 'FC1', 'FCz', 'FC2', 'FC4', 'FC6', 'FT8', 'FT10',
-            'T9', 'T7', 'C5', 'C3', 'C1', 'Cz', 'C2', 'C4', 'C6', 'T8', 'T10',
-            'TP9', 'TP7', 'CP5', 'CP3', 'CP1', 'CPz', 'CP2', 'CP4', 'CP6', 'TP8', 'TP10',
-            'P9', 'P7', 'P5', 'P3', 'P1', 'Pz', 'P2', 'P4', 'P6', 'P8', 'P10',
-            'PO9', 'PO7', 'PO5', 'PO3', 'PO1', 'POz', 'PO2', 'PO4', 'PO6', 'PO8', 'PO10',
-            'O1', 'Oz', 'O2'
-        ][:self.n_eeg_channels]
+            'FP1', 'FPZ', 'FP2',
+            'AF3', 'AF4',
+            'F7', 'F5', 'F3', 'F1', 'FZ', 'F2', 'F4', 'F6', 'F8',
+            'FT7', 'FC5', 'FC3', 'FC1', 'FCZ', 'FC2', 'FC4', 'FC6', 'FT8',
+            'T7', 'C5', 'C3', 'C1', 'CZ', 'C2', 'C4', 'C6', 'T8',
+            'TP7', 'CP5', 'CP3', 'CP1', 'CPZ', 'CP2', 'CP4', 'CP6', 'TP8',
+            'P7', 'P5', 'P3', 'P1', 'PZ', 'P2', 'P4', 'P6', 'P8',
+            'PO7', 'PO5', 'PO3', 'POZ', 'PO4', 'PO6', 'PO8',
+            'CB1', 'O1', 'OZ', 'O2', 'CB2'
+        ]
 
     def find_subject_files(self):
-        """Find all subject files and group sessions."""
+        """Find all subject files and treat each session as a separate subject."""
         files = list(self.input_dir.glob("*.npy"))
         subjects = {}
         
         for file in files:
-            if "_session2" in file.name:
-                subject_id = file.name.split("_session2")[0]
-                if subject_id not in subjects:
-                    subjects[subject_id] = []
-                subjects[subject_id].append(file)
-            else:
-                subject_id = file.stem
-                if subject_id not in subjects:
-                    subjects[subject_id] = []
-                subjects[subject_id].append(file)
+            subject_id = file.stem  # Use full stem, e.g., sub1 or sub1_session2
+            subjects[subject_id] = [file]
         
-        # Sort sessions for each subject
-        for subject_id in subjects:
-            subjects[subject_id].sort()
-            
         return subjects
 
     def load_and_concatenate_sessions(self, subject_files):
-        """Load and concatenate multiple sessions for a subject."""
-        all_data = []
-        
-        for file_path in subject_files:
-            print(f"  Loading: {file_path.name}")
-            data = np.load(file_path)  # Shape: (7_videos, 62_channels, timepoints)
-            
-            # Reshape to (62_channels, total_timepoints) by concatenating videos
-            n_videos, n_channels, n_timepoints = data.shape
-            reshaped_data = data.transpose(1, 0, 2).reshape(n_channels, -1)
-            all_data.append(reshaped_data)
-        
-        # Concatenate sessions along time axis
-        if len(all_data) > 1:
-            concatenated_data = np.concatenate(all_data, axis=1)
-            print(f"  Concatenated {len(all_data)} sessions")
-        else:
-            concatenated_data = all_data[0]
-        
-        return concatenated_data
+        """Load only the first session for a subject. Do NOT concatenate sessions."""
+        file_path = subject_files[0]
+        print(f"  Loading: {file_path.name}")
+        data = np.load(file_path)  # Shape: (7_videos, 62_channels, timepoints)
+        n_videos, n_channels, n_timepoints = data.shape
+        reshaped_data = data.transpose(1, 0, 2).reshape(n_channels, -1)
+        return reshaped_data
 
     def create_mne_raw(self, data, subject_id):
         """Create MNE Raw object from numpy array."""
@@ -138,83 +114,50 @@ class SEEDDVPreprocessor:
         return raw
 
     def detect_bad_channels(self, raw):
-        """Fixed bad channel detection with more conservative thresholds."""
-        print("  Detecting bad channels...")
-        
-        # Get data after filtering for better bad channel detection
+        """Robust bad channel detection using amplitude, flatness, and correlation criteria."""
+        print("  Detecting bad channels (robust method)...")
         data = raw.get_data()
-        
-        bad_channels = []
-        
-        # Method 1: Check for flat channels (std < threshold)
+        ch_names = raw.ch_names
+        n_channels = data.shape[0]
+        bad_channels = set()
+
+        # 1. Flat channels (very low std)
         channel_stds = np.std(data, axis=1)
-        flat_threshold = 1e-7  # More conservative threshold
-        flat_channels = [raw.ch_names[i] for i, std in enumerate(channel_stds) 
-                        if std < flat_threshold]
-        bad_channels.extend(flat_channels)
-        
-        # Method 2: Check for extreme variance channels (more conservative)
-        channel_vars = np.var(data, axis=1)
-        q25, q75 = np.percentile(channel_vars, [25, 75])
-        iqr = q75 - q25
-        
-        # Much more conservative outlier detection
-        lower_bound = q25 - 5 * iqr  # Changed from 2.5 to 5
-        upper_bound = q75 + 5 * iqr  # Changed from 2.5 to 5
-        
-        outlier_channels = [raw.ch_names[i] for i, var in enumerate(channel_vars)
-                        if var < lower_bound or var > upper_bound]
-        bad_channels.extend(outlier_channels)
-        
-        # Method 3: Check for channels with extreme amplitude (more conservative)
-        channel_max_abs = np.max(np.abs(data), axis=1)
-        amp_q99 = np.percentile(channel_max_abs, 99)  # Changed from 95 to 99
-        high_amp_channels = [raw.ch_names[i] for i, max_amp in enumerate(channel_max_abs)
-                            if max_amp > amp_q99 * 5]  # Changed from 3x to 5x
-        bad_channels.extend(high_amp_channels)
-        
-        # Method 4: Correlation-based bad channel detection (more conservative)
-        corr_matrix = np.corrcoef(data)
-        # Remove diagonal and compute mean correlation for each channel
-        np.fill_diagonal(corr_matrix, np.nan)
-        mean_corr = np.nanmean(corr_matrix, axis=1)
-        
-        # Only mark channels with extremely low correlation
-        low_corr_threshold = np.percentile(mean_corr, 2)  # Changed from 10% to 2%
-        low_corr_channels = [raw.ch_names[i] for i, corr in enumerate(mean_corr)
-                            if corr < low_corr_threshold and corr < 0.1]  # Additional threshold
-        bad_channels.extend(low_corr_channels)
-        
-        # Remove duplicates
-        bad_channels = list(set(bad_channels))
-        
-        # Limit the number of bad channels to prevent over-removal
-        max_bad_channels = min(6, int(0.10 * len(raw.ch_names)))  # Max 6 channels or 10%
-        if len(bad_channels) > max_bad_channels:
-            print(f"    Limiting bad channels from {len(bad_channels)} to {max_bad_channels}")
-            # Keep only the most problematic ones based on variance
-            channel_problem_scores = []
-            for ch_name in bad_channels:
-                ch_idx = raw.ch_names.index(ch_name)
-                var_score = abs(channel_vars[ch_idx] - np.median(channel_vars)) / np.std(channel_vars)
-                corr_score = abs(mean_corr[ch_idx] - np.median(mean_corr)) / np.std(mean_corr)
-                total_score = var_score + corr_score
-                channel_problem_scores.append((ch_name, total_score))
-            
-            # Sort by problem score and keep worst ones
-            channel_problem_scores.sort(key=lambda x: x[1], reverse=True)
-            bad_channels = [ch for ch, score in channel_problem_scores[:max_bad_channels]]
-        
+        mad_std = np.median(np.abs(channel_stds - np.median(channel_stds)))
+        flat_thresh = np.median(channel_stds) - 5 * mad_std
+        flat_chs = [ch_names[i] for i, std in enumerate(channel_stds) if std < flat_thresh or std < 1e-7]
+        if flat_chs:
+            print(f"    Flat channels: {flat_chs}")
+        bad_channels.update(flat_chs)
+
+        # 2. High-amplitude channels (robust z-score)
+        channel_max = np.max(np.abs(data), axis=1)
+        med_max = np.median(channel_max)
+        mad_max = np.median(np.abs(channel_max - med_max))
+        high_amp_thresh = med_max + 8 * mad_max
+        high_amp_chs = [ch_names[i] for i, val in enumerate(channel_max) if val > high_amp_thresh]
+        if high_amp_chs:
+            print(f"    High amplitude channels: {high_amp_chs}")
+        bad_channels.update(high_amp_chs)
+
+        # 3. Low correlation to median channel
+        median_channel = np.median(data, axis=0)
+        corrs = np.array([np.corrcoef(data[i], median_channel)[0, 1] for i in range(n_channels)])
+        low_corr_thresh = np.median(corrs) - 5 * np.median(np.abs(corrs - np.median(corrs)))
+        low_corr_chs = [ch_names[i] for i, c in enumerate(corrs) if c < low_corr_thresh or c < 0.4]
+        if low_corr_chs:
+            print(f"    Low correlation channels: {low_corr_chs}")
+        bad_channels.update(low_corr_chs)
+
+        # 4. Print summary and mark bads
+        bad_channels = list(sorted(bad_channels, key=lambda x: ch_names.index(x)))
         if bad_channels:
-            print(f"    Found {len(bad_channels)} bad channels: {bad_channels}")
+            print(f"    Marked {len(bad_channels)} bad channels: {bad_channels}")
             raw.info['bads'] = bad_channels
-            
-            # Interpolate bad channels
             raw.interpolate_bads(reset_bads=True)
             print(f"    Interpolated {len(bad_channels)} bad channels")
         else:
             print("    No bad channels detected")
-        
         return raw
 
     def apply_asr(self, raw):
@@ -1101,7 +1044,7 @@ if __name__ == "__main__":
     # Initialize preprocessor
     preprocessor = SEEDDVPreprocessor(
         input_dir="../SEED-DV/EEG",  # Adjust path as needed
-        output_dir="preprocessed_eeg_2"
+        output_dir="preprocessed_eeg_6"
     )
     
     # Run preprocessing pipeline
