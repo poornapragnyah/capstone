@@ -1,0 +1,14 @@
+torch==2.6.0+cu126
+torchvision==0.21.0+cu126
+torchaudio==2.6.0+cu126
+numpy
+pandas
+scipy
+transformers
+torch-geometric
+scikit-learn
+jupyterlab
+ipykernel
+# pip install pyg-lib torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-2.6.0+cu126.html
+
+

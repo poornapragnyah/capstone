@@ -1,0 +1,51 @@
+SEED-DV Dataset Summary (EEG + Text + Metadata)
+
+1. Data Overview
+----------------
+- 7 videos per subject
+- Each video is 13 seconds per block:
+    - 3s clue
+    - 10s video
+- Sample rate (sfreq): 200 Hz
+- EEG channels: 62
+
+2. EEG Structure
+----------------
+- Original raw shape: (7, 62, 104000)
+    - 104000 samples per video → 520 seconds
+- Concatenated shape: (62, 728000)
+    - 728000 samples → 3640 seconds total
+- Final preprocessed epochs: (1400, 62, 400)
+    - 1400 epochs = 7 videos × 40 blocks × 5 epochs per 10s video
+    - Each epoch = 2 seconds (400 samples)
+
+3. Captions
+-----------
+- 7 caption text files (one per video)
+- 5 captions per 10-second video segment
+- Total: 1400 captions
+    - 1 caption per 2-second EEG epoch
+
+4. Metadata
+-----------
+- 1400 JSON files
+    - 1 JSON file per 2-second EEG epoch
+    - Includes color, motion score, and category
+
+5. Data Alignment
+-----------------
+- EEG epochs ↔ captions ↔ metadata are 1:1 aligned
+- Mapping:
+    EEG[0]  → caption[0]  → metadata[0].json
+    EEG[1]  → caption[1]  → metadata[1].json
+    ...
+    EEG[1399] → caption[1399] → metadata[1399].json
+
+6. Usage Notes
+--------------
+- EEG epochs saved as .npy (for ML training)
+- DataLoader will load:
+    - EEG tensor: (62, 400)
+    - Tokenized caption (text → input_ids, attention_mask)
+    - Metadata (color, category as labels; motion as float)
+
