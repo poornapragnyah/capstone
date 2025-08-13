@@ -3,4 +3,6 @@ preprocessed*
 Scripts*
 output*
 *.mat
+*.h5
+.ipynb_checkpoints*
 
