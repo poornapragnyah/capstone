@@ -1,0 +1,12 @@
+PHASE - 2: STGT ENCODER
+
+STEPS:
+1) Create the spatial graph which takes the distance between electrodes on the scalp. (from >
+2) this graph is saved as a tensor in file - Ahat_adjacency_matrix.pt
+
+3) Create matrix X which is the input features - EEG data
+This represents features of nodes(eeg channels) at a given point in time
+each row represents one of the 62 eeg channels
+cols represent features asssociated w each channel - amplitude
+
+4) implement the GCN layer 
