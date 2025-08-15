@@ -10,3 +10,20 @@ each row represents one of the 62 eeg channels
 cols represent features asssociated w each channel - amplitude
 
 4) implement the GCN layer 
+it's job is to:
+1) mix each channel's signal with its neighbours signal (based on spatial matrix A_hat)
+2) learn how to reshape this mixed signal into more useful features for the next part of the model
+
+how does it do so?
+-> multiply spatial_graph called matrix A_hat with EEG data matrix X
+-> transform using W
+-> applies ReLU
+
+how will this GCN layer be used?
+- The SGTG encoder will receive a batch of EEG data from eeg_tensors.pt
+- loop through each of the timesteps in that EEG (400 ts)
+- for each t, it'll extarct X for that specific time 
+- It passes X and A_hat through to the GCN Layer.
+- A new feature matrix will be output from here and sent to the Temporal Transformer.
+
+
