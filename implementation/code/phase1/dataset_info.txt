@@ -46,6 +46,6 @@ SEED-DV Dataset Summary (EEG + Text + Metadata)
 - EEG epochs saved as .npy (for ML training)
 - DataLoader will load:
     - EEG tensor: (62, 400)
-    - Tokenized caption (text → input_ids, attention_mask)
+    - Tokenized caption (named as input_ids in h5) (text → input_ids, attention_mask)
     - Metadata (color, category as labels; motion as float)
 
