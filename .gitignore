@@ -6,3 +6,4 @@ output*
 *.h5
 .ipynb_checkpoints*
 implementation/code/phase2/eeg_tensors.pt
+eeg_tensors.pt
