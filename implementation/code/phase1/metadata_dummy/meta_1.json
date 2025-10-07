@@ -1,0 +1,1 @@
+{"caption": {"text": "This is a test caption for item 1.", "emotional_tone": "neutral"}, "semantic_features": {"scene_category": "outdoors", "objects": ["object_1", "object_2"]}, "visual_attributes": {"major_colors": [{"color": "red", "percentage": "100%"}], "optical_flow_score": {"value": 0.1}}}
