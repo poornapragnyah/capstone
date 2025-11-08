@@ -1,10 +1,16 @@
 # ==================================================================================
-# STANDALONE CPU INFERENCE SCRIPT
+# STANDALONE CPU INFERENCE SCRIPT (V4 - GREEDY SEARCH)
 #
-# This script is designed to be run in parallel with the training script
-# to check the progress of the latest saved model.
+# WHAT CHANGED:
+# 1. The 'generate_end_to_end' function has been simplified.
+# 2. Removed the complex (and broken) custom sampling logic (top-k, penalty).
+# 3. Replaced it with a simple, greedy search (top1 = argmax(1)), which
+#    perfectly matches the logic used in the 'evaluate' function.
 #
-# IT IS HARD-CODED TO RUN ON THE CPU to avoid interfering with training.
+# WHY:
+# The training log proves the model IS learning with greedy search.
+# This script will now give us an honest, apples-to-apples view of
+# what the model has learned.
 # ==================================================================================
 
 import torch
@@ -23,16 +29,16 @@ import random
 import torch.nn.functional as F
 from torch_geometric.nn import GCNConv
 import json
-import evaluate as hf_evaluate  # Use alias to avoid conflict
+import evaluate as hf_evaluate
 from tqdm.auto import tqdm
 
 # ==================================================================================
-# ALL PATHS AND CONSTANTS (Copied from your script)
+# ALL PATHS AND CONSTANTS
 # ==================================================================================
 H5_FILE_PATH = "/home/poorna/data/eeg_dataset_with_qwen.h5"
 LOCAL_MODEL_PATH = "/home/poorna/models/bert-base-uncased"
 TRAIN_PCT, VAL_PCT = 0.8, 0.1
-BATCH_SIZE = 16 # Batch size doesn't matter much here, but good for consistency
+BATCH_SIZE = 16
 
 NUM_COLORS = 12
 NUM_OBJECTS = 90
@@ -43,7 +49,6 @@ SOS_ID = tokenizer.cls_token_id
 EOS_ID = tokenizer.sep_token_id
 TEXT_VOCAB_SIZE = tokenizer.vocab_size
 
-# --- CRITICAL: FORCE CPU ---
 device = torch.device("cpu")
 print(f"Using device: {device} (This is intentional for safe inference)")
 print(f"Metadata config: {NUM_COLORS} colors, {NUM_OBJECTS} objects (NO categories)")
@@ -126,9 +131,70 @@ def collate_multimodal_batch(batch):
     return eeg_batch.float(), meta_batch.float(), text_padded
 
 # ==================================================================================
-# ALL MODEL CLASSES (Needed for torch.load)
+# ALL NEW MODEL CLASSES (V3)
 # ==================================================================================
 
+# --- NEW: ATTENTION-BASED META-HEAD ---
+class AttentionMetaHead(nn.Module):
+    def __init__(self, enc_dim, hidden_dim, num_colors, num_objects, dropout=0.3):
+        super().__init__()
+        self.enc_dim = enc_dim
+        self.hidden_dim = hidden_dim
+        self.num_colors = num_colors
+        self.num_objects = num_objects
+        
+        self.color_query_generator = nn.Sequential(
+            nn.Linear(enc_dim, hidden_dim),
+            nn.Tanh()
+        )
+        self.object_query_generator = nn.Sequential(
+            nn.Linear(enc_dim, hidden_dim),
+            nn.Tanh()
+        )
+        self.key_projection = nn.Linear(enc_dim, hidden_dim)
+        self.value_projection = nn.Linear(enc_dim, hidden_dim)
+        
+        self.color_predictor = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.LayerNorm(hidden_dim),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, num_colors)
+        )
+        self.object_predictor = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.LayerNorm(hidden_dim),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, num_objects)
+        )
+        print(f"AttentionMetaHead initialized:")
+        print(f"  - Input dim: {enc_dim}, Hidden dim: {hidden_dim}")
+        print(f"  - Outputs: {num_colors} colors, {num_objects} objects")
+    
+    def attend(self, query, encoder_outputs):
+        keys = self.key_projection(encoder_outputs)
+        values = self.value_projection(encoder_outputs)
+        query = query.unsqueeze(1)
+        keys = keys.permute(1, 0, 2)
+        scores = torch.bmm(query, keys.transpose(1, 2))
+        scores = scores / (self.hidden_dim ** 0.5)
+        attn_weights = F.softmax(scores, dim=-1)
+        values = values.permute(1, 0, 2)
+        context = torch.bmm(attn_weights, values)
+        context = context.squeeze(1)
+        return context, attn_weights.squeeze(1)
+    
+    def forward(self, encoder_outputs, global_eeg_context):
+        color_query = self.color_query_generator(global_eeg_context)
+        object_query = self.object_query_generator(global_eeg_context)
+        color_context, color_attn_weights = self.attend(color_query, encoder_outputs)
+        object_context, object_attn_weights = self.attend(object_query, encoder_outputs)
+        pred_color = self.color_predictor(color_context)
+        pred_object = self.object_predictor(object_context)
+        return pred_color, pred_object
+
+# --- ENCODER (Unchanged) ---
 class SpatioTemporalEEGEncoder(nn.Module):
     def __init__(self, num_channels=62, enc_hidden=256, num_layers=2, dropout=0.2):
         super().__init__()
@@ -144,24 +210,20 @@ class SpatioTemporalEEGEncoder(nn.Module):
     def forward(self, eeg, edge_index, edge_attr):
         batch_size = eeg.shape[0]
         num_timesteps = eeg.shape[2]
-
         batch_edge_index = edge_index.repeat(1, batch_size)
         batch_edge_attr = edge_attr.repeat(batch_size)
         batch_offset = torch.arange(batch_size, device=eeg.device) * self.num_channels
         batch_edge_index = batch_edge_index + batch_offset.repeat_interleave(edge_index.shape[1])
-
         eeg_reshaped = eeg.permute(0, 2, 1).reshape(-1, self.num_channels)
-
         x = F.relu(self.gcn1(eeg_reshaped, batch_edge_index, batch_edge_attr))
         x = self.dropout(x)
         x = F.relu(self.gcn2(x, batch_edge_index, batch_edge_attr))
-
         temporal_features = x.reshape(batch_size, num_timesteps, -1)
         encoder_outputs, encoder_hidden = self.rnn(temporal_features)
         encoder_outputs = encoder_outputs.permute(1, 0, 2)
-
         return encoder_outputs, encoder_hidden
 
+# --- ATTENTION (Unchanged) ---
 class LuongAttention(nn.Module):
     def __init__(self, enc_dim, dec_dim):
         super().__init__()
@@ -175,49 +237,44 @@ class LuongAttention(nn.Module):
         context = torch.bmm(attn_weights, encoder_outputs.permute(1, 0, 2))
         return context, attn_weights.squeeze(1)
 
+# --- METADATA ENCODER (Unchanged) ---
 class MetadataEncoder(nn.Module):
     def __init__(self, num_colors, num_objects, 
                  color_emb_dim=16, object_feature_dim=128):
         super().__init__()
-        
         self.color_embedding = nn.Embedding(num_colors, color_emb_dim)
-        
         self.object_processor = nn.Sequential(
-            nn.Linear(num_objects, 256), # Changed from 61 to num_objects (90)
+            nn.Linear(num_objects, 256),
             nn.ReLU(),
             nn.Dropout(0.3),
             nn.Linear(256, object_feature_dim)
         )
         self.output_dim = color_emb_dim + object_feature_dim
-        print(f"MetadataEncoder output dimension: {self.output_dim} (color:{color_emb_dim} + objects:{object_feature_dim})")
+        print(f"MetadataEncoder output dimension: {self.output_dim}")
 
     def forward(self, metadata):
         color_ids = metadata[:, 0].long()
-        object_features_raw = metadata[:, 1:] # Changed from [:, 2:] to [:, 1:]
-        object_features_raw = object_features_raw.float()
-
+        object_features_raw = metadata[:, 1:].float()
         color_vec = self.color_embedding(color_ids)
         object_vec = self.object_processor(object_features_raw)
-
         combined_features = torch.cat([color_vec, object_vec], dim=1)
-        
         return combined_features
 
+# --- MODIFIED DECODER (V3) ---
 class Decoder(nn.Module):
-    def __init__(self, vocab_size, emb_dim, enc_hidden, dec_hidden, meta_features_dim, num_layers, pad_id, dropout):
+    def __init__(self, vocab_size, emb_dim, enc_hidden, dec_hidden, 
+                 meta_features_dim, num_layers, pad_id, dropout):
         super().__init__()
         self.vocab_size = vocab_size
         self.dec_hidden = dec_hidden
         self.num_layers = num_layers
         enc_dim = enc_hidden * 2
-
         self.embedding = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_id)
         self.attention = LuongAttention(enc_dim, dec_hidden)
-
-        self.rnn_input_dim = emb_dim + enc_dim + meta_features_dim + enc_dim
-        print(f"Decoder RNN input dimension: {self.rnn_input_dim}")
-        self.rnn = nn.GRU(self.rnn_input_dim, dec_hidden, num_layers, dropout=dropout if num_layers > 1 else 0)
-
+        self.rnn_input_dim = emb_dim + enc_dim + meta_features_dim
+        print(f"Decoder RNN input dimension: {self.rnn_input_dim} (removed global context)")
+        self.rnn = nn.GRU(self.rnn_input_dim, dec_hidden, num_layers, 
+                          dropout=dropout if num_layers > 1 else 0)
         self.fc_out = nn.Linear(dec_hidden, vocab_size)
         self.dropout = nn.Dropout(dropout)
         self.bridge = nn.Linear(enc_dim, dec_hidden)
@@ -230,53 +287,44 @@ class Decoder(nn.Module):
         decoder_initial_hidden = bridged_hidden.unsqueeze(0).repeat(self.num_layers, 1, 1)
         return decoder_initial_hidden
 
-    def forward(self, token, decoder_hidden, encoder_outputs, meta_features, global_eeg_context):
+    def forward(self, token, decoder_hidden, encoder_outputs, meta_features):
         token = token.unsqueeze(0)
         embedded = self.dropout(self.embedding(token))
         context, attn_weights = self.attention(decoder_hidden[-1].unsqueeze(0), encoder_outputs)
-        
         meta_features_unsqueezed = meta_features.unsqueeze(0)
-        global_eeg_context_unsqueezed = global_eeg_context.unsqueeze(0)
         context_permuted = context.permute(1, 0, 2)
-
         rnn_input = torch.cat((
             embedded,
             context_permuted,
-            meta_features_unsqueezed,
-            global_eeg_context_unsqueezed
+            meta_features_unsqueezed
         ), dim=2)
-
         output, hidden = self.rnn(rnn_input, decoder_hidden)
         prediction = self.fc_out(output.squeeze(0))
-
         return prediction, hidden, context.squeeze(1)
 
-# This must be the *latest* version of the Seq2Seq class
+# --- MODIFIED SEQ2SEQ (V3) ---
 class Seq2Seq(nn.Module):
     def __init__(self, text_vocab_size, num_colors, num_objects, enc_hidden=256, dec_hidden=256,
-                 pad_id=0, dropout=0.2, color_emb_dim=16, object_feature_dim=128, emb_dim=256, dec_layers=2):
+                 pad_id=0, dropout=0.2, color_emb_dim=16, object_feature_dim=128, 
+                 emb_dim=256, dec_layers=2, meta_hidden=256):
         super().__init__()
         self.encoder = SpatioTemporalEEGEncoder(enc_hidden=enc_hidden, dropout=dropout, num_layers=dec_layers)
-        
         self.meta_encoder = MetadataEncoder(
             num_colors, 
             num_objects,
             color_emb_dim, 
             object_feature_dim
         )
-
         meta_features_dim = self.meta_encoder.output_dim
         enc_dim = enc_hidden * 2
-
         self.decoder = Decoder(text_vocab_size, emb_dim, enc_hidden, dec_hidden,
                                  meta_features_dim, dec_layers, pad_id, dropout)
-
-        self.meta_head = nn.Sequential(
-            nn.Linear(enc_dim, 256),
-            nn.ReLU(),
-            nn.LayerNorm(256),
-            nn.Dropout(0.3),
-            nn.Linear(256, num_colors + num_objects)
+        self.meta_head = AttentionMetaHead(
+            enc_dim=enc_dim,
+            hidden_dim=meta_hidden,
+            num_colors=num_colors,
+            num_objects=num_objects,
+            dropout=dropout
         )
         self.num_colors = num_colors
         self.num_objects = num_objects
@@ -286,17 +334,13 @@ class Seq2Seq(nn.Module):
         batch_size = eeg.shape[0]
         target_len = target_text.shape[1]
         target_vocab_size = self.decoder.vocab_size
-
         encoder_outputs, encoder_hidden = self.encoder(eeg, edge_index, edge_attr)
-        decoder_hidden = self.decoder.init_hidden(encoder_hidden)
-
+        
         hidden_reshaped = encoder_hidden.view(self.encoder.rnn.num_layers, 2, batch_size, -1)
         last_layer_hidden = hidden_reshaped[-1]
         global_eeg_context = torch.cat((last_layer_hidden[0], last_layer_hidden[1]), dim=1)
 
-        meta_preds = self.meta_head(global_eeg_context)
-        pred_color = meta_preds[:, :self.num_colors]
-        pred_object = meta_preds[:, self.num_colors:]
+        pred_color, pred_object = self.meta_head(encoder_outputs, global_eeg_context)
 
         use_true_meta = random.random() < meta_teacher_forcing_ratio
         
@@ -306,13 +350,10 @@ class Seq2Seq(nn.Module):
             with torch.no_grad():
                 pred_color_id_vec = pred_color.argmax(dim=-1).float().unsqueeze(1)
                 pred_object_vec = (torch.sigmoid(pred_object) > 0.5).float()
-                predicted_meta_vector = torch.cat([
-                    pred_color_id_vec,
-                    pred_object_vec
-                ], dim=1)
-            
+                predicted_meta_vector = torch.cat([pred_color_id_vec, pred_object_vec], dim=1)
             meta_features = self.meta_encoder(predicted_meta_vector)
 
+        decoder_hidden = self.decoder.init_hidden(encoder_hidden)
         outputs = torch.zeros(target_len, batch_size, target_vocab_size).to(eeg.device)
         decoder_input = target_text[:, 0]
 
@@ -321,10 +362,8 @@ class Seq2Seq(nn.Module):
                 decoder_input,
                 decoder_hidden,
                 encoder_outputs,
-                meta_features,
-                global_eeg_context
+                meta_features
             )
-
             outputs[t] = output
             teacher_force = random.random() < text_teacher_forcing_ratio
             top1 = output.argmax(1)
@@ -345,32 +384,25 @@ if __name__ == "__main__":
     g = torch.Generator().manual_seed(42) # Use same seed!
     train_ds, val_ds, test_ds = random_split(dataset, [n_train, n_val, n_test], generator=g)
 
-    # We need the test_loader to get samples
     test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_multimodal_batch)
 
-    # Create Granger matrix (using a sample from test set)
+    # Create Granger matrix
     print("Creating Granger Causality matrix...")
     try:
-        # Get a sample batch from the test loader
         eeg_b, _, _ = next(iter(test_loader))
         granger_edge_index, granger_edge_attr = create_granger_causality_matrix(eeg_b)
         num_channels = eeg_b.shape[1]
-
         granger_edge_index, granger_edge_attr = add_self_loops(
             granger_edge_index,
             edge_attr=granger_edge_attr,
             num_nodes=num_channels,
             fill_value=1.0
         )
-
         if granger_edge_attr is None:
             granger_edge_attr = torch.ones(granger_edge_index.shape[1], dtype=torch.float)
-
-        # --- FORCE GRANGER TO CPU ---
         granger_edge_index = granger_edge_index.to(torch.long).to(device)
         granger_edge_attr = granger_edge_attr.to(torch.float32).to(device)
         print(f"Granger matrix created: {granger_edge_index.shape}")
-
     except Exception as e:
         print(f"Error creating Granger matrix: {e}. Using fallback.")
         num_channels = 62
@@ -380,7 +412,7 @@ if __name__ == "__main__":
         granger_edge_index = edge_index.to(torch.long).to(device)
         granger_edge_attr = torch.ones(granger_edge_index.shape[1], dtype=torch.float32).to(device)
 
-    # Instantiate model
+    # Instantiate model with new 'meta_hidden' param
     model = Seq2Seq(
         text_vocab_size=TEXT_VOCAB_SIZE,
         num_colors=NUM_COLORS,
@@ -390,19 +422,19 @@ if __name__ == "__main__":
         enc_hidden=256,
         dec_hidden=256,
         emb_dim=256,
-        dec_layers=2
-    ).to(device) # Send model to CPU
+        dec_layers=2,
+        meta_hidden=256  # <-- New param
+    ).to(device)
 
     print(f"Model instantiated on '{device}'.")
 
     # ==================================================================================
-    # REFACTORED INFERENCE (Copied from your script)
+    # INFERENCE FUNCTION (MODIFIED FOR GREEDY SEARCH)
     # ==================================================================================
     
     # Load best model
     checkpoint_path = 'eeg-meta-text-qwen-refactored-model.pt'
     try:
-        # --- FORCE MODEL TO LOAD ONTO CPU ---
         model.load_state_dict(torch.load(checkpoint_path, map_location=device))
         print(f"\nBest model '{checkpoint_path}' loaded for inference.")
     except FileNotFoundError:
@@ -411,8 +443,9 @@ if __name__ == "__main__":
         exit()
     except Exception as e:
         print(f"Error loading model: {e}")
+        print("This may be because the saved checkpoint is from an OLD architecture.")
+        print("Please delete the old .pt file and retrain.")
         exit()
-
 
     # Load object mapping
     OBJECT_MAPPING_FILE = "/home/poorna/data/object_id_to_name_qwen.json"
@@ -425,12 +458,8 @@ if __name__ == "__main__":
         object_mapping = {}
 
     @torch.no_grad()
-    def generate_end_to_end(model, eeg_signal, edge_index, edge_attr,
-                            sample_idx,
-                            k=5,
-                            penalty_alpha=0.3,
-                            context_beta=0.7,
-                            max_len=100):
+    def generate_end_to_end_greedy(model, eeg_signal, edge_index, edge_attr,
+                                   sample_idx, max_len=100):
         
         model.eval()
         eeg_signal = eeg_signal.unsqueeze(0).to(device) # Send data to CPU
@@ -443,11 +472,8 @@ if __name__ == "__main__":
         last_layer_hidden = hidden_reshaped[-1]
         global_eeg_context = torch.cat((last_layer_hidden[0], last_layer_hidden[1]), dim=1)
 
-        # 3. Predict metadata from EEG
-        meta_preds_logits = model.meta_head(global_eeg_context)
-
-        pred_color_logits = meta_preds_logits[:, :model.num_colors]
-        pred_object_logits = meta_preds_logits[:, model.num_colors:]
+        # 3. Predict metadata from EEG (using new meta_head)
+        pred_color_logits, pred_object_logits = model.meta_head(encoder_outputs, global_eeg_context)
 
         # For decoder input
         pred_color_id_vec = pred_color_logits.argmax(dim=-1).float().unsqueeze(1)
@@ -471,51 +497,43 @@ if __name__ == "__main__":
         decoder_hidden = model.decoder.init_hidden(encoder_hidden)
 
         if sample_idx < 2:
-            print(f"\n--- [Sample {sample_idx+1}] Generation Start (End-to-End) ---")
+            print(f"\n--- [Sample {sample_idx+1}] Generation Start (Greedy Search) ---")
 
-        # 7. Generation loop
-        generated_ids = torch.tensor([SOS_ID], device=device)
-        for step in range(max_len):
-            input_token = generated_ids[-1].unsqueeze(0)
+        # 7. Generation loop (MODIFIED FOR GREEDY SEARCH)
+        generated_ids = [SOS_ID]
+        decoder_input = torch.tensor([SOS_ID], device=device)
 
-            prediction, new_hidden, attention_context = model.decoder(
-                input_token,
+        for _ in range(max_len):
+            # --- UPDATED: No global context passed ---
+            prediction, new_hidden, _ = model.decoder(
+                decoder_input,
                 decoder_hidden,
                 encoder_outputs,
-                predicted_meta_features,
-                global_eeg_context
+                predicted_meta_features
             )
             decoder_hidden = new_hidden
             
-            model_log_probs = F.log_softmax(prediction, dim=-1).squeeze(0)
-            topk_model_log_probs, topk_ids = torch.topk(model_log_probs, k)
-            
-            current_seq_len = generated_ids.shape[0]
-            prev_token_embeddings = F.normalize(model.decoder.embedding(generated_ids), dim=-1)
-            candidate_token_embeddings = F.normalize(model.decoder.embedding(topk_ids), dim=-1)
-            
-            sim_matrix = torch.matmul(candidate_token_embeddings, prev_token_embeddings.t())
-            degeneration_penalty = torch.zeros(k, device=device)
-            if current_seq_len > 1:
-                degeneration_penalty, _ = torch.max(sim_matrix, dim=-1)
-                
-            current_decoder_state = F.normalize(decoder_hidden[-1].squeeze(), dim=-1)
-            context_agreement_score = torch.matmul(candidate_token_embeddings, current_decoder_state)
-            
-            final_score = topk_model_log_probs + context_beta * context_agreement_score - penalty_alpha * degeneration_penalty
-            
-            best_next_token_idx = torch.argmax(final_score)
-            next_token_id = topk_ids[best_next_token_idx]
+            # Greedy search: get the top-1 prediction
+            top1 = prediction.argmax(1)
+            next_token_id = top1.item()
+            generated_ids.append(next_token_id)
 
-            generated_ids = torch.cat([generated_ids, next_token_id.unsqueeze(0)])
-            if next_token_id.item() == EOS_ID:
+            if next_token_id == EOS_ID:
                 if sample_idx < 5:
                     print("  [EOS Reached]")
                 break
-                
-        if generated_ids.numel() > 1:
-            predicted_text_ids = generated_ids[1:-1] if generated_ids[-1].item() == EOS_ID else generated_ids[1:]
-            predicted_text = tokenizer.decode(predicted_text_ids.tolist(), skip_special_tokens=True)
+            
+            # The next input is the token we just predicted
+            decoder_input = top1
+
+        if len(generated_ids) > 1:
+            # Don't decode the [SOS] token
+            predicted_text_ids = generated_ids[1:]
+            # If [EOS] is the last token, remove it
+            if predicted_text_ids[-1] == EOS_ID:
+                predicted_text_ids = predicted_text_ids[:-1]
+            
+            predicted_text = tokenizer.decode(predicted_text_ids, skip_special_tokens=True)
         else:
             predicted_text = ""
         
@@ -526,7 +544,7 @@ if __name__ == "__main__":
 
     # Run inference
     NUM_SAMPLES = 20
-    print(f"\n--- Running TRUE END-TO-END Inference on {NUM_SAMPLES} Samples ---")
+    print(f"\n--- Running TRUE END-TO-END Inference on {NUM_SAMPLES} Samples (Greedy Search) ---")
 
     predictions = []
     references = []
@@ -534,7 +552,6 @@ if __name__ == "__main__":
     for i in range(NUM_SAMPLES):
         eeg_sample, meta_sample, true_text_ids = test_ds[i]
 
-        # Extract true metadata
         true_color_id = int(meta_sample[0].item())
         true_object_vector = meta_sample[1:]
         true_object_ids_tensors = true_object_vector.nonzero(as_tuple=True)[0]
@@ -543,31 +560,26 @@ if __name__ == "__main__":
         if not true_object_names:
             true_object_names = ["None"]
 
-        predicted_text, pred_color, pred_object_ids = generate_end_to_end(
+        # UPDATED: Call the new greedy function
+        predicted_text, pred_color, pred_object_ids = generate_end_to_end_greedy(
             model,
             eeg_sample,
             granger_edge_index,
             granger_edge_attr,
-            sample_idx=i,
-            k=5,
-            penalty_alpha=0.3,
-            context_beta=0.7
+            sample_idx=i
         )
 
-        # Decode true text
         true_text_ids_list = true_text_ids.long().tolist()
         true_text = tokenizer.decode(true_text_ids_list, skip_special_tokens=True)
 
         predictions.append(predicted_text)
         references.append(true_text)
 
-        # Convert predicted object IDs to names
         pred_object_names = [object_mapping.get(str(oid), f"ID:{oid}") 
                              for oid in pred_object_ids]
         if not pred_object_names:
             pred_object_names = ["None"]
 
-        # Print summary
         print(f"\n--- Sample {i+1}/{NUM_SAMPLES} Summary (Index: {i}) ---")
         print(f"GROUND TRUTH TEXT: {true_text}")
         print(f"MODEL PREDICTION TEXT: {predicted_text}")
