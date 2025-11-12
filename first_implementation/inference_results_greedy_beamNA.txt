@@ -1,0 +1,211 @@
+BLEU Scores (GREEDY):
+Overall BLEU: 0.0728
+BLEU-1: 0.3567
+BLEU-2: 0.0873
+BLEU-3: 0.0460
+BLEU-4: 0.0311
+
+================================================================================
+All Predictions:
+================================================================================
+
+Sample 1:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 2:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 3:
+TRUE:      people walk along a city street under bright neon lights.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 4:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 5:
+TRUE:      people stand in a large indoor space with a modern design.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 6:
+TRUE:      a horse runs across a rocky field with green grass in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 7:
+TRUE:      horses graze on a lush green hillside under a clear blue sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 8:
+TRUE:      a horse stands near a wooden fence in a natural setting.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 9:
+TRUE:      horses gallop across a vast, open desert landscape under a clear blue sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 10:
+TRUE:      horses graze in a lush green field on a sunny day.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 11:
+TRUE:      a car drives on a wide highway with a clear sky above.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 12:
+TRUE:      a car drives on a wide, empty road with lush green hills in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 13:
+TRUE:      a car drives on a wet highway with a cloudy sky above.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 14:
+TRUE:      a car drives on a wide, empty road under a clear blue sky with fluffy clouds.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 15:
+TRUE:      a vehicle travels along a winding mountain road under a partly cloudy sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 16:
+TRUE:      a sea turtle swims gracefully through the clear blue ocean.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 17:
+TRUE:      a turtle swims gracefully through clear blue water near a sandy bottom with seaweed.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 18:
+TRUE:      a sea turtle swims gracefully through the ocean, its head and flippers visible.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 19:
+TRUE:      a sea turtle swims gracefully over a colorful coral reef.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 20:
+TRUE:      a turtle swims in a shallow pool of water.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 21:
+TRUE:      a person wearing gloves cuts a watermelon on a table.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 22:
+TRUE:      a hand holds a watermelon, showing its green rind.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 23:
+TRUE:      a hand holds a watermelon on a digital scale, adjusting its position.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 24:
+TRUE:      a person examines a large watermelon in a market setting.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 25:
+TRUE:      a hand points to a large watermelon growing in a garden.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 26:
+TRUE:      a person runs on a track with a grassy field in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 27:
+TRUE:      a person runs on a blue track with trees and a fence in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 28:
+TRUE:      a family walks hand in hand along a paved path in a park - like setting.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 29:
+TRUE:      a man and a child run together on a dirt path in a forested area.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 30:
+TRUE:      a man and a woman run side by side on a red track under a partly cloudy sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 31:
+TRUE:      a large airplane taxis on a runway with a colorful design.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 32:
+TRUE:      a large airplane lands on a runway under overcast skies.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 33:
+TRUE:      a large airplane lands on a runway with a wind turbine in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 34:
+TRUE:      a large airplane flies through a clear blue sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 35:
+TRUE:      a large airplane flies through a partly cloudy sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 36:
+TRUE:      a hand holds a fork, cutting into a layered cake on a white plate.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 37:
+TRUE:      a slice of cake with a cute bear decoration on a plate.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 38:
+TRUE:      a knife slices through a strawberry - flavored cake, revealing its creamy interior.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 39:
+TRUE:      a close - up of a layered cake with white frosting and strawberries on top.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 40:
+TRUE:      a hand uses a piping bag to decorate a layered cake with swirls of cream.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 41:
+TRUE:      a drummer plays a drum set in a dimly lit room.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 42:
+TRUE:      a person plays the drums in a room with a laptop and a bookshelf in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 43:
+TRUE:      a drummer plays a drum set in a room with a white wall.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 44:
+TRUE:      a drummer plays a drum set on a stage with a black background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 45:
+TRUE:      a drummer practices on a drum set with various cymbals and drums.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 46:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 47:
+TRUE:      fireworks explode in the night sky, creating a dazzling display of colors and light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 48:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 49:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 50:
+TRUE:      a bright red firework explodes in the night sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+

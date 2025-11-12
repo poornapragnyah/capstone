@@ -1,0 +1,83 @@
+{
+  "text_metrics": {
+    "bleu": 0.0,
+    "bleu_1": 0.12347546563297722,
+    "bleu_2": 0.0,
+    "bleu_3": 0.0,
+    "bleu_4": 0.0,
+    "rouge1": 0.05733229306794268,
+    "rouge2": 0.0,
+    "rougeL": 0.05710420687874021,
+    "meteor": 0.019862505922480928
+  },
+  "metadata_metrics": {
+    "color_accuracy": 0.24,
+    "object_f1_micro": 0.0,
+    "object_f1_macro": 0.0,
+    "object_precision": 0.0,
+    "object_recall": 0.0
+  },
+  "num_samples": 2800,
+  "examples": [
+    {
+      "reference": "a bustling city street with tall buildings and moving vehicles.",
+      "prediction": "handsd coffee in background",
+      "color_target": 4,
+      "color_pred": 4
+    },
+    {
+      "reference": "a city street at dusk, illuminated by streetlights and vehicle headlights.",
+      "prediction": "handsd coffee in background",
+      "color_target": 4,
+      "color_pred": 4
+    },
+    {
+      "reference": "aerial view of a modern cityscape with diverse buildings and green spaces.",
+      "prediction": "handsd coffee in background",
+      "color_target": 4,
+      "color_pred": 4
+    },
+    {
+      "reference": "a bustling cityscape with tall buildings and a river, under a partly cloudy sky.",
+      "prediction": "handsd coffee in background",
+      "color_target": 4,
+      "color_pred": 4
+    },
+    {
+      "reference": "a cityscape at dusk, with tall buildings and a mountainous backdrop.",
+      "prediction": "handsd coffee in background",
+      "color_target": 4,
+      "color_pred": 4
+    },
+    {
+      "reference": "people enjoy a sunny day at a crowded beach with clear blue skies and turquoise water.",
+      "prediction": "handsd coffee in background",
+      "color_target": 1,
+      "color_pred": 4
+    },
+    {
+      "reference": "aerial view of waves crashing onto a sandy beach.",
+      "prediction": "handsd coffee in background",
+      "color_target": 3,
+      "color_pred": 4
+    },
+    {
+      "reference": "a serene beach scene with lush greenery and calm ocean waves.",
+      "prediction": "handsd coffee in background",
+      "color_target": 1,
+      "color_pred": 4
+    },
+    {
+      "reference": "a serene beach at sunset with gentle waves and a calm sea.",
+      "prediction": "handsd coffee in background",
+      "color_target": 1,
+      "color_pred": 4
+    },
+    {
+      "reference": "a serene beach scene with gentle waves and a cloudy sky.",
+      "prediction": "handsd coffee in background",
+      "color_target": 1,
+      "color_pred": 4
+    }
+  ]
+}

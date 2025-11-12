@@ -1,0 +1,4011 @@
+BLEU Scores (BEAM):
+Overall BLEU: 0.0442
+BLEU-1: 0.3253
+BLEU-2: 0.0738
+BLEU-3: 0.0221
+BLEU-4: 0.0104
+
+================================================================================
+All Predictions:
+================================================================================
+
+Sample 1:
+TRUE:      a woman practices boxing in a dimly lit gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 2:
+TRUE:      two boxers engage in a boxing match, with one delivering a punch to the other.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 3:
+TRUE:      a shirtless man practices boxing in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 4:
+TRUE:      two individuals practice boxing in a gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 5:
+TRUE:      a muscular man practices boxing in front of a brick wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 6:
+TRUE:      two motorcyclists perform a wheelie on a rural road.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 7:
+TRUE:      motorcycle racers compete fiercely on a track, with one rider in the lead.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 8:
+TRUE:      two motorcyclists ride down a scenic road with trees and a sign in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 9:
+TRUE:      two motorcyclists ride down a road with greenery and buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 10:
+TRUE:      a person rides a motorcycle on a city street with tall buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 11:
+TRUE:      a person holds a slice of pizza with melted cheese, tomatoes, and basil leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 12:
+TRUE:      a freshly baked pizza with various toppings sits on a metal surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 13:
+TRUE:      a freshly baked pizza with toppings sits on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 14:
+TRUE:      a person holds two pizzas, one with tomato sauce and basil leaves, the other with cheese and ham.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 15:
+TRUE:      a colorful pizza with various toppings sits in a box.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 16:
+TRUE:      a fluffy cat lounges on a soft surface, gazing curiously.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 17:
+TRUE:      a fluffy cat with striking yellow eyes gazes intently.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 18:
+TRUE:      a fluffy orange cat lies on its back next to a ball of yarn, seemingly curious about the yarn.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 19:
+TRUE:      a cat enjoys a refreshing bath in a lush green garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 20:
+TRUE:      a cat walks on a concrete surface near a grassy area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 21:
+TRUE:      a person plays an acoustic guitar outdoors in a lush green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 22:
+TRUE:      a person plays an electric bass guitar in a room with colorful cushions.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 23:
+TRUE:      a person plays an acoustic guitar on a rooftop with a cityscape in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 24:
+TRUE:      a person plays an acoustic guitar in a plain room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 25:
+TRUE:      a person plays an acoustic guitar outdoors with a wind turbine in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 26:
+TRUE:      a herd of elephants walks through a grassy savannah with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 27:
+TRUE:      a large elephant stands in a grassy field, moving its trunk and trunk tip.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 28:
+TRUE:      elephants walk across a dry, rocky landscape under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 29:
+TRUE:      an elephant walks across a grassy savannah under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 30:
+TRUE:      an elephant and a gazelle stand near a water source in a dry, open landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 31:
+TRUE:      a white sports car drives on a road with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 32:
+TRUE:      a futuristic electric vehicle drives through a desert landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 33:
+TRUE:      a silver pickup truck drives on a sandy desert road, kicking up dust behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 34:
+TRUE:      a silver bmw m4 convertible drives along a rural road with tall grass on either side.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 35:
+TRUE:      a person drives a black volkswagen car on a snowy road lined with tall trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 36:
+TRUE:      a vibrant yellow flower blooms in a lush green garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 37:
+TRUE:      a field of blue and white flowers swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 38:
+TRUE:      a field of vibrant purple lavender flowers swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 39:
+TRUE:      pink flowers bloom in a garden with green leaves in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 40:
+TRUE:      a vibrant yellow and pink flower blooms in a lush green garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 41:
+TRUE:      two horses gallop across a sandy beach with a rocky cliff in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 42:
+TRUE:      two horses stand close together in a field under a clear sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 43:
+TRUE:      horses gallop across a sandy beach with rocky hills in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 44:
+TRUE:      horses and a foal run through a grassy field with mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 45:
+TRUE:      horses gallop across a vast, open field on a cloudy day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 46:
+TRUE:      a panda sits on a log, licking its paw and looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 47:
+TRUE:      a panda lies on its back, eyes closed, in a natural setting with green foliage in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 48:
+TRUE:      a panda bear sits on a branch and eats bamboo.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 49:
+TRUE:      a panda bear lies on a wooden log, grooming itself.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 50:
+TRUE:      a panda sits on a bamboo branch, eating leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 51:
+TRUE:      tourists walk through a bustling market street under bright sunlight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 52:
+TRUE:      people gather outside a mcdonald ' s restaurant at night.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 53:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 54:
+TRUE:      people gather in a brightly lit indoor space, engaging in conversation and using smartphones.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 55:
+TRUE:      people walk along a busy city street under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 56:
+TRUE:      a misty mountain landscape with dense fog and rocky cliffs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 57:
+TRUE:      a serene winter landscape with snow - covered mountains and a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 58:
+TRUE:      a vast mountainous landscape with winding roads and sparse vegetation.
+PREDICTED: a person plays a grassy field in a clear blue sky.
+
+Sample 59:
+TRUE:      a rugged mountain peak rises against a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 60:
+TRUE:      a snow - covered mountain range with clouds and a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 61:
+TRUE:      tall trees sway gently in a dense forest under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 62:
+TRUE:      sunlight filters through tall trees in a lush forest, casting dappled light on the ferns below.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 63:
+TRUE:      a dense forest with tall trees and a ground covered in fallen leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 64:
+TRUE:      sunlight filters through tall trees in a misty forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 65:
+TRUE:      a serene forest with tall trees and a misty atmosphere.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 66:
+TRUE:      a person dances in a room with a curtain backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 67:
+TRUE:      a person dances in a minimalist setting with a white background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 68:
+TRUE:      a person dances energetically on a paved path in front of a modern building.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 69:
+TRUE:      a person performs a dance routine in a minimalist setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 70:
+TRUE:      a woman dances in a minimalist living room with a beige sofa and a white rug.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 71:
+TRUE:      a large airplane descends towards the ground in a hazy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 72:
+TRUE:      a colorful airplane takes off from an airport runway.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 73:
+TRUE:      a large airplane lands on a runway under overcast skies.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 74:
+TRUE:      a large airplane flies through a hazy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 75:
+TRUE:      a large commercial airplane lands on a runway under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 76:
+TRUE:      two women in traditional indian attire play a drum and a tambourine in a decorated room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 77:
+TRUE:      two men in hard hats and uniforms are inside a vehicle, one pointing at something.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 78:
+TRUE:      two men in business attire discuss a document while seated on a couch.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 79:
+TRUE:      two women collaborate on a creative project at a desk.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 80:
+TRUE:      an elderly couple sits at a kitchen table, discussing and handling documents.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 81:
+TRUE:      a person ' s hand reaches towards two bananas on a countertop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 82:
+TRUE:      a hand holds a banana on a marble countertop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 83:
+TRUE:      a person peels a banana on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 84:
+TRUE:      three ripe bananas are displayed against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 85:
+TRUE:      three bananas are shown against a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 86:
+TRUE:      a slice of strawberry cheesecake is cut and served on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 87:
+TRUE:      a hand holds a fork, poised to cut into a colorful, layered dessert.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 88:
+TRUE:      a rectangular cake with green and pink layers is decorated with small, pointed green meringues.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 89:
+TRUE:      a beautifully decorated cake with pastel - colored flowers and leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 90:
+TRUE:      a close - up of a cake with white frosting and lemon slices on top.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 91:
+TRUE:      a skier descends a snowy slope on a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 92:
+TRUE:      a skier performs a jump in a snowy forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 93:
+TRUE:      a skier descends a snowy mountain slope, carving through the powder.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 94:
+TRUE:      a person in an orange jacket and black pants is skiing down a snowy slope.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 95:
+TRUE:      a skier performs a trick on a snowy mountain slope.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 96:
+TRUE:      a hand slices a watermelon into pieces on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 97:
+TRUE:      a person cuts a watermelon on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 98:
+TRUE:      a person cuts a watermelon into slices on a wooden cutting board.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 99:
+TRUE:      a person ' s hand holds a watermelon on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 100:
+TRUE:      a person cuts a watermelon into slices on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 101:
+TRUE:      a black puppy lies on a white surface, looking around curiously.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 102:
+TRUE:      a small white dog with large ears is being held up close to the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 103:
+TRUE:      a dog with a brown and white coat is looking up and to the side.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 104:
+TRUE:      a golden retriever puppy stands on green grass, looking up.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 105:
+TRUE:      a small dog sits in a dimly lit room, gazing into the distance.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 106:
+TRUE:      a vibrant fireworks display illuminates the night sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 107:
+TRUE:      fireworks light up the night sky over a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 108:
+TRUE:      a vibrant fireworks display illuminates the night sky with colorful explosions.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 109:
+TRUE:      fireworks light up the night sky with vibrant bursts of color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 110:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 111:
+TRUE:      a vibrant coral reef teems with colorful fish and diverse coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 112:
+TRUE:      a clownfish swims among vibrant yellow anemone flowers in a colorful underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 113:
+TRUE:      a clownfish swims gracefully among colorful coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 114:
+TRUE:      two clownfish swim near a large yellow anemone on a coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 115:
+TRUE:      a clownfish swims gracefully near coral in a vibrant underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 116:
+TRUE:      a woman applies a skincare product to her face.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 117:
+TRUE:      a person sits on a couch, covering their face with a pink and white towel.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 118:
+TRUE:      a baby looks around with curiosity against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 119:
+TRUE:      a person with curly hair looks around in surprise.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 120:
+TRUE:      a person wearing glasses looks intently at a screen.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 121:
+TRUE:      a dense cluster of white mushrooms grows on a dark, rocky surface.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 122:
+TRUE:      a close - up of a red mushroom growing in mossy soil.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 123:
+TRUE:      small mushrooms grow in a forest floor with pine needles and leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 124:
+TRUE:      a white mushroom grows from the soil in a forest setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 125:
+TRUE:      a cluster of bright yellow mushrooms grows in a dark, mossy forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 126:
+TRUE:      two whales swim gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 127:
+TRUE:      a large shark swims gracefully through the blue ocean, surrounded by coral reefs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 128:
+TRUE:      a shark swims gracefully in clear blue water, surrounded by small fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 129:
+TRUE:      a large shark swims gracefully over a sandy ocean floor.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 130:
+TRUE:      a large shark swims gracefully through the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 131:
+TRUE:      a hand pours a clear bottle of amber liquid into a glass.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 132:
+TRUE:      a vibrant orange cocktail with a red rim and an orange slice garnish rotates slowly.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 133:
+TRUE:      a glass of amber - colored liquid is being poured into a glass with ice cubes, creating a swirling effect.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 134:
+TRUE:      green kiwi juice is poured into a tall glass beside a few cut kiwi fruits in a black background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 135:
+TRUE:      a glass of milk is being poured into a glass on a black background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 136:
+TRUE:      a sleek white yacht speeds across turquoise waters near a beach and tall buildings.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 137:
+TRUE:      a sleek speedboat races across calm waters, leaving a trail of white foam behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 138:
+TRUE:      a luxury yacht speeds across the ocean, leaving a trail of white foam behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 139:
+TRUE:      a white yacht speeds across the deep blue ocean, leaving a trail of white foam behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 140:
+TRUE:      a large cargo ship sails across a calm, blue ocean with a smaller boat following behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 141:
+TRUE:      a person runs through a park with trees and grass.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 142:
+TRUE:      a woman runs in a park with trees and flowers in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 143:
+TRUE:      a woman runs along a city path with tall buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 144:
+TRUE:      a person runs on a track in a grassy field.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 145:
+TRUE:      a couple runs on a bridge during a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 146:
+TRUE:      water flows over rocks in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 147:
+TRUE:      a powerful waterfall cascades over rocky terrain, creating a frothy white spray.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 148:
+TRUE:      a powerful river flows through a rocky canyon, creating white foam and turbulent waves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 149:
+TRUE:      a turbulent river flows through a forested area, creating white foam and rapids.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 150:
+TRUE:      a powerful river flows over rocks, creating a frothy, turbulent scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 151:
+TRUE:      a sea turtle swims gracefully through the blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 152:
+TRUE:      a sea turtle swims gracefully in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 153:
+TRUE:      a green sea turtle swims gracefully through the clear blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 154:
+TRUE:      a sea turtle swims gracefully through clear blue water.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 155:
+TRUE:      a sea turtle swims gracefully through clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 156:
+TRUE:      a jellyfish swims gracefully in clear blue water.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 157:
+TRUE:      a jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 158:
+TRUE:      a mesmerizing display of glowing jellyfishes in a dark underwater environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 159:
+TRUE:      a vibrant jellyfish swims gracefully in a deep blue ocean, illuminated by a starry light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 160:
+TRUE:      colorful jellyfish float gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 161:
+TRUE:      a drummer plays a drum set in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 162:
+TRUE:      a man plays the drums in a recording studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 163:
+TRUE:      a drummer plays a drum set with various cymbals and drums.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 164:
+TRUE:      a drummer plays a drum set with a black shirt and black pants.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 165:
+TRUE:      a drummer plays a drum set with cymbals and drums.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 166:
+TRUE:      a road with a white line running along its edge, surrounded by green grass and a gravel path.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 167:
+TRUE:      a car drives on a wide, empty road under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 168:
+TRUE:      a car drives down a tree - lined road on a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 169:
+TRUE:      a car drives along a winding mountain road lined with trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 170:
+TRUE:      a winding road curves through a scenic landscape under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 171:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 172:
+TRUE:      a person plays the piano with their hands in front of a window with a city view.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 173:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 174:
+TRUE:      a person plays a grand piano with both hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 175:
+TRUE:      a person plays an electronic keyboard with sheet music nearby.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 176:
+TRUE:      a vibrant blue bird perches on a branch, showcasing its striking colors and detailed features.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 177:
+TRUE:      a vibrant bird perches on a branch amidst lush green foliage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 178:
+TRUE:      a hummingbird hovers near a vibrant flower against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 179:
+TRUE:      a bird flies gracefully over a calm body of water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 180:
+TRUE:      a vibrant orange bird perches on a branch, surrounded by lush green foliage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 181:
+TRUE:      hot air balloons float in a clear blue sky over a grassy field.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 182:
+TRUE:      a colorful hot air balloon floats against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 183:
+TRUE:      a large red hot air balloon floats in the sky with a blue and white logo.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 184:
+TRUE:      a vibrant sky filled with colorful hot air balloons against a clear blue backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 185:
+TRUE:      a colorful hot air balloon floats above a picturesque landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 186:
+TRUE:      a serene tropical beach with clear blue skies and white clouds.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 187:
+TRUE:      a serene beach at sunset with waves crashing onto the shore.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 188:
+TRUE:      two people walk along a sandy beach near the ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 189:
+TRUE:      a person walks along a sandy beach near the ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 190:
+TRUE:      waves gently lap against a rocky shore at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 191:
+TRUE:      a cityscape with tall buildings and a crane in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 192:
+TRUE:      a dense city skyline is filled with numerous tall skyscrapers
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 193:
+TRUE:      a bustling cityscape with diverse buildings under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 194:
+TRUE:      aerial view of a tall building under construction in a city.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 195:
+TRUE:      a cityscape with tall buildings under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 196:
+TRUE:      a fluffy rabbit lies on a soft surface, gazing around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 197:
+TRUE:      a white rabbit stands on a bed of small, brown pellets, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 198:
+TRUE:      two rabbits eat green leaves in a cozy indoor setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 199:
+TRUE:      a rabbit stands in a grassy field, looking directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 200:
+TRUE:      a rabbit runs across a sandy terrain in a desert - like environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 201:
+TRUE:      a person runs on a brick path in an urban setting during sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 202:
+TRUE:      a man performs a dance routine on a rooftop with a cityscape in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 203:
+TRUE:      a person practices ballet in a minimalist studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 204:
+TRUE:      a ballerina gracefully dances in an urban setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 205:
+TRUE:      a person stands in a room with a black backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 206:
+TRUE:      a bunch of ripe bananas rests on a wooden surface, with some showing signs of browning.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 207:
+TRUE:      bananas are placed on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 208:
+TRUE:      a hand holds a partially peeled banana, focusing on the fruit ' s texture and color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 209:
+TRUE:      a person peels a banana on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 210:
+TRUE:      a close - up of a banana with a green background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 211:
+TRUE:      a bustling cityscape with modern skyscrapers and a busy road under clear blue skies.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 212:
+TRUE:      aerial view of a cityscape with a prominent american flag on a rooftop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 213:
+TRUE:      aerial view of a modern urban area with mixed - use buildings and parking lots.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 214:
+TRUE:      a bustling cityscape with historic buildings and modern structures.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 215:
+TRUE:      a bustling cityscape with tall buildings under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 216:
+TRUE:      a cat rests its head on a surface, eyes closed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 217:
+TRUE:      a gray cat with green eyes and white whiskers looks around attentively.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 218:
+TRUE:      a fluffy cat rests on a soft surface, eyes closed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 219:
+TRUE:      a small kitten with striking blue eyes and fluffy fur is lying down, gazing curiously.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 220:
+TRUE:      a cat sits outdoors, gazing into the distance.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 221:
+TRUE:      a condor airplane flies through a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 222:
+TRUE:      a large airplane flies through a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 223:
+TRUE:      a large commercial airplane flies through a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 224:
+TRUE:      a large airplane taxis on a runway with clear blue skies in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 225:
+TRUE:      a large airplane is stationary on a runway, with its nose pointing towards the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 226:
+TRUE:      a solitary shark swims gracefully through deep blue ocean waters.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 227:
+TRUE:      a large shark swims gracefully through the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 228:
+TRUE:      a shark swims gracefully in the deep blue ocean, accompanied by a small fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 229:
+TRUE:      a dolphin swims gracefully in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 230:
+TRUE:      a large shark swims gracefully through the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 231:
+TRUE:      a person plays a digital piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 232:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 233:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 234:
+TRUE:      a person plays the piano with sheet music in front of them.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 235:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 236:
+TRUE:      a person walks through a dense forest with tall trees and lush undergrowth.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 237:
+TRUE:      a dense forest with tall trees and moss - covered ground.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 238:
+TRUE:      a dense forest with tall pine trees and a moss - covered ground.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 239:
+TRUE:      sunlight filters through tall trees in a dense forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 240:
+TRUE:      a dense forest with tall trees and moss - covered ground.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 241:
+TRUE:      a person with short hair and a nose ring looks down.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 242:
+TRUE:      a person wearing glasses and a white shirt looks to the side.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 243:
+TRUE:      a person with long dreadlocks sits indoors, smiling.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 244:
+TRUE:      a person with long hair and glasses is looking down.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 245:
+TRUE:      a person ， 手 下 上 。
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 246:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 247:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 248:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 249:
+TRUE:      a solitary light streaks across the night sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 250:
+TRUE:      fireworks light up the night sky over a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 251:
+TRUE:      a red car drives on a road with a grassy area and trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 252:
+TRUE:      a pickup truck drives on a dirt road in a desert landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 253:
+TRUE:      a sleek, modern car drives on a smooth road with greenery in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 254:
+TRUE:      a pickup truck speeds across a sandy terrain under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 255:
+TRUE:      a blue car drives on a track with a person inside.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 256:
+TRUE:      a person cuts a pizza with a knife.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 257:
+TRUE:      a pizza with various toppings is placed on a wooden plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 258:
+TRUE:      a pizza is being topped with melted cheese.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 259:
+TRUE:      a close - up of a pizza with melted cheese, tomatoes, and basil leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 260:
+TRUE:      a person prepares a pizza in an oven, with a close - up of the pizza being cooked.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 261:
+TRUE:      a panda bear eats bamboo in a zoo enclosure.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 262:
+TRUE:      a panda bear eats bamboo in a grassy area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 263:
+TRUE:      a panda bear sits on a log in a forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 264:
+TRUE:      a panda bear sits and eats bamboo leaves in a grassy area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 265:
+TRUE:      a panda sits on a branch, eating bamboo leaves.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 266:
+TRUE:      people ski down a snowy slope on a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 267:
+TRUE:      a person snowboards down a snowy slope with a red sign in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 268:
+TRUE:      a skier glides down a snowy mountain slope, performing a jump.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 269:
+TRUE:      a person kite skiing on a snowy field under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 270:
+TRUE:      a person snowboards down a snowy slope in a snowy environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 271:
+TRUE:      a sea turtle swims gracefully in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 272:
+TRUE:      two large tortoises walk on grass in a sunny outdoor setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 273:
+TRUE:      a sea turtle swims gracefully through the blue ocean, surrounded by rocky coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 274:
+TRUE:      a large tortoise slowly crawls across a grassy field.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 275:
+TRUE:      a colorful turtle rests on a log near a body of water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 276:
+TRUE:      a car drives on a wide road with trees and buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 277:
+TRUE:      vehicles travel on a wide highway under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 278:
+TRUE:      a car drives along a forested road under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 279:
+TRUE:      a car drives along a desert road at sunset, with the sun setting in the distance.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 280:
+TRUE:      a road stretches into the distance, flanked by grassy fields under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 281:
+TRUE:      a slice of layered dessert with a fork piercing through it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 282:
+TRUE:      a hand holds a fork, cutting into a layered cake on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 283:
+TRUE:      a colorful, layered dessert with pastel hues.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 284:
+TRUE:      a hand gently touches a chocolate cake on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 285:
+TRUE:      a layered chocolate cake with a slice cut out, dusted with cocoa powder.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 286:
+TRUE:      a white mushroom grows on a moss - covered tree trunk in a forest.
+PREDICTED: a person plays a grassy field in a clear blue sky.
+
+Sample 287:
+TRUE:      a small mushroom grows on a dark, textured surface with a blurred, bokeh background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 288:
+TRUE:      a close - up of a mushroom growing on a tree stump in a forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 289:
+TRUE:      a dense cluster of bright yellow mushrooms grows in a lush, green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 290:
+TRUE:      small white mushrooms grow in a dark, damp environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 291:
+TRUE:      a man and a woman stand facing each other, with the man holding a book and the woman looking at him.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 292:
+TRUE:      a couple sits on a couch, engaged in a conversation.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 293:
+TRUE:      a man and a woman stand in front of a blackboard, with the man holding a green folder.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 294:
+TRUE:      a couple enjoys a meal together, sharing a glass of wine and a plate of pasta.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 295:
+TRUE:      a couple stands close together, smiling and laughing outdoors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 296:
+TRUE:      a serene mountain village with lush green fields and dense forests.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 297:
+TRUE:      a serene mountain landscape with rocky cliffs and sparse vegetation under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 298:
+TRUE:      a vast desert landscape with towering red rock formations under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 299:
+TRUE:      a serene mountain landscape with a winding river and colorful foliage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 300:
+TRUE:      a snow - covered mountain range with trees and clouds in the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 301:
+TRUE:      a hummingbird perches on a leaf, its wings slightly spread.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 302:
+TRUE:      a bird perches on a rocky surface, holding a green leaf in its beak.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 303:
+TRUE:      a vibrant orange bird perches on a branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 304:
+TRUE:      a group of ducks stands on a brick path near a pond, with some preening and others looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 305:
+TRUE:      a vibrant parrot perches on a branch, showcasing its bright colors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 306:
+TRUE:      a person plays an acoustic guitar on a sandy beach at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 307:
+TRUE:      a person plays an electric guitar with their right hand.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 308:
+TRUE:      a person plays an electric guitar in a casual setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 309:
+TRUE:      a young girl plays a pink electric guitar in a room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 310:
+TRUE:      a person plays an acoustic guitar against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 311:
+TRUE:      a powerful waterfall cascades down a lush, green mountain.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 312:
+TRUE:      a powerful river flows over rocks, creating white foam and turbulent water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 313:
+TRUE:      a river flows over rocks and rapids, with a bridge in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 314:
+TRUE:      a powerful river flows over rocks, creating frothy white water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 315:
+TRUE:      a large fish swims in a river with rocks and water flowing around it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 316:
+TRUE:      horses gallop across a vast, sunlit desert plain.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 317:
+TRUE:      horses gallop across a sandy beach under a dramatic sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 318:
+TRUE:      a horse stands in a grassy field with a stone building in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 319:
+TRUE:      horses gallop across a sandy beach at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 320:
+TRUE:      horses graze in a grassy field with snow - capped mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 321:
+TRUE:      a large cruise ship sails on calm waters with colorful decorations and a city skyline in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 322:
+TRUE:      a white boat speeds across the ocean, leaving a trail of white foam behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 323:
+TRUE:      a boat sails on calm waters near a rocky shore with a town in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 324:
+TRUE:      a boat travels on a river with a bridge in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 325:
+TRUE:      a large cargo ship sails across a calm, turquoise sea.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 326:
+TRUE:      a delicate pink flower with a yellow center stands out against a lush green background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 327:
+TRUE:      red roses bloom in a garden with lush green leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 328:
+TRUE:      a delicate white rose blooms amidst lush green foliage in a serene garden setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 329:
+TRUE:      red poppies sway gently in a lush green field.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 330:
+TRUE:      a field of sunflowers swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 331:
+TRUE:      a vibrant coral reef teems with colorful fish and diverse coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 332:
+TRUE:      a clownfish swims gracefully among vibrant coral reefs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 333:
+TRUE:      a clownfish swims among green sea anemones in a vibrant underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 334:
+TRUE:      a clownfish swims among vibrant coral and anemone in a colorful underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 335:
+TRUE:      a vibrant underwater scene with colorful fish swimming near coral reefs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 336:
+TRUE:      a car drives along a deserted beach at sunset, with waves gently lapping against the shore.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 337:
+TRUE:      a calm beach scene with waves gently lapping against the shore.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 338:
+TRUE:      a serene beach scene with a swing hanging from a tree, gentle waves lapping the shore, and distant boats on the water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 339:
+TRUE:      aerial view of a rocky coastline with clear turquoise waters.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 340:
+TRUE:      a calm ocean with gentle waves approaching the shore.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 341:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 342:
+TRUE:      people walk through a shopping mall with various shops and advertisements.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 343:
+TRUE:      people gather on a city street at night, socializing and walking.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 344:
+TRUE:      people walk through a shopping mall with various items displayed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 345:
+TRUE:      people stand in a line, waiting for something, in an urban setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 346:
+TRUE:      a close - up of a wine glass being filled with red wine.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 347:
+TRUE:      a person wearing black gloves stirs a vibrant green drink with a metal straw.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 348:
+TRUE:      a vibrant green drink with a lime wedge in a glass against a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 349:
+TRUE:      a close - up of a frothy beer glass with condensation on the outside.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 350:
+TRUE:      a glass of red wine is being poured into a wine glass.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 351:
+TRUE:      a firefighter battles a grass fire in a field, using a hose to extinguish the flames.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 352:
+TRUE:      a man runs along a paved path in a park - like setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 353:
+TRUE:      a person runs along a sandy beach with the sun setting in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 354:
+TRUE:      a person runs on a grassy path in a park, wearing a face mask.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 355:
+TRUE:      a woman runs across a barren, rocky landscape under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 356:
+TRUE:      a playful puppy runs across a lush green lawn on a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 357:
+TRUE:      a husky dog with blue eyes stands in the snow, looking up.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 358:
+TRUE:      a small dog with a fluffy coat stands outdoors, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 359:
+TRUE:      a fluffy dog plays in the snow, its fur catching the light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 360:
+TRUE:      a pug dog sleeps peacefully on a soft surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 361:
+TRUE:      a colorful hot air balloon floats against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 362:
+TRUE:      a variety of colorful hot air balloons float in the sky, creating a vibrant and festive atmosphere.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 363:
+TRUE:      people walk along a field under a clear blue sky with colorful hot air balloons.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 364:
+TRUE:      a vibrant hot air balloon festival with colorful balloons and people on the ground.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 365:
+TRUE:      colorful hot air balloons float gracefully against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 366:
+TRUE:      a jellyfish swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 367:
+TRUE:      jellyfish float gracefully in a deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 368:
+TRUE:      a jellyfish swims gracefully in the dark ocean, illuminated by a soft, ethereal light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 369:
+TRUE:      a glowing jellyfish swims gracefully in a dark, underwater environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 370:
+TRUE:      a glowing, bioluminescent creature swims in a dark, underwater environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 371:
+TRUE:      three elephants graze in a grassy field under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 372:
+TRUE:      an elephant walks across a dry, rocky landscape under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 373:
+TRUE:      two elephants stand near a water source in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 374:
+TRUE:      elephants walk across a grassy savannah under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 375:
+TRUE:      a baby elephant stands in a grassy field, moving its trunk and trunk tip.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 376:
+TRUE:      a person rides a motorcycle on a road with a cityscape in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 377:
+TRUE:      a motorcyclist performs a wheelie on a dirt track.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 378:
+TRUE:      motorcyclists race on a track with colorful bikes and helmets.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 379:
+TRUE:      a person rides a motorcycle on a gravel road surrounded by greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 380:
+TRUE:      a person rides a motorcycle on a paved road with a guardrail and greenery in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 381:
+TRUE:      a person plays a drum set in a room with a window in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 382:
+TRUE:      a drummer plays a drum set in a studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 383:
+TRUE:      a drummer plays a drum set with drumsticks.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 384:
+TRUE:      a person plays the drums in a studio setting.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 385:
+TRUE:      a person plays a drum set in a dark room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 386:
+TRUE:      a rabbit sits on a wooden surface, observing its surroundings.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 387:
+TRUE:      a gray rabbit sits calmly on a soft, textured surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 388:
+TRUE:      a fluffy, light brown rabbit sits calmly inside a cage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 389:
+TRUE:      a gray rabbit lies on a soft surface next to a plush banana toy.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 390:
+TRUE:      a rabbit stands alert in a grassy field, its ears perked up.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 391:
+TRUE:      a hand gently touches a large green leafy vegetable in a garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 392:
+TRUE:      a person holds a watermelon on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 393:
+TRUE:      a person cuts a watermelon on a cutting board with a knife.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 394:
+TRUE:      a hand holds a watermelon slice on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 395:
+TRUE:      a close - up view of several watermelons with green rinds and a few visible seeds.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 396:
+TRUE:      a person practices boxing in a gym with a punching bag.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 397:
+TRUE:      two boxers practice in a gym, exchanging punches.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 398:
+TRUE:      a person practices boxing in a gym with red gloves and a punching bag in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 399:
+TRUE:      an older man practices boxing in a gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 400:
+TRUE:      two individuals practice boxing in a gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 401:
+TRUE:      a person snowboarding down a snowy slope under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 402:
+TRUE:      a skier glides through the air above a snowy mountain landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 403:
+TRUE:      a snowboarder performs a trick in mid - air against a snowy backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 404:
+TRUE:      a lone skier descends a snowy mountain slope under a bright, sunlit sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 405:
+TRUE:      a skier performs a jump over a snowy obstacle course.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 406:
+TRUE:      a close - up of a colorful, layered dessert with a fork piercing through it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 407:
+TRUE:      a hand reaches for a colorful macaron on a plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 408:
+TRUE:      a person decorates a small cake with pink frosting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 409:
+TRUE:      a layered cake with a slice cut out, dusted with cocoa powder.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 410:
+TRUE:      a hand uses a piping bag to decorate a layered cake with white frosting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 411:
+TRUE:      a vibrant parrot perches on a branch, showcasing its colorful plumage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 412:
+TRUE:      a bird perches on a branch amidst green foliage, its feathers ruffled.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 413:
+TRUE:      a hummingbird hovers in mid - air amidst a lush green background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 414:
+TRUE:      a group of colorful parrots perched on a branch in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 415:
+TRUE:      a flock of seagulls soar gracefully against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 416:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 417:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 418:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 419:
+TRUE:      a person plays a keyboard with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 420:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 421:
+TRUE:      a serene beach scene with gentle waves and a rocky island in the distance.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 422:
+TRUE:      a serene beach scene with people relaxing and birds flying overhead.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 423:
+TRUE:      a serene tropical beach with clear turquoise waters and lush greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 424:
+TRUE:      a serene beach scene with gentle waves and palm trees under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 425:
+TRUE:      a person runs along a sandy beach towards the ocean waves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 426:
+TRUE:      a person wearing an orange shirt is looking down.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 427:
+TRUE:      a person stands outdoors in a snowy environment, wearing winter clothing and a hat.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 428:
+TRUE:      a man in a tuxedo is seen in a close - up shot, closing his eyes and smiling.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 429:
+TRUE:      a person is using a hair clipper on their face.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 430:
+TRUE:      a person with curly hair and glasses looks directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 431:
+TRUE:      a vibrant field of yellow and orange tulips swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 432:
+TRUE:      white flowers bloom against a black background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 433:
+TRUE:      a vibrant field of red and yellow flowers swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 434:
+TRUE:      a sunflower field bathed in golden sunlight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 435:
+TRUE:      a single yellow flower with water droplets on its petals in a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 436:
+TRUE:      a person rides a motorcycle on a paved surface with a building in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 437:
+TRUE:      a person rides a motor scooter on a winding road.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 438:
+TRUE:      three motorcyclists ride in a line on a city road.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 439:
+TRUE:      a person rides a motorcycle on a road with a cityscape in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 440:
+TRUE:      two motorcyclists ride on a sunny road with a guardrail.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 441:
+TRUE:      a school of blue and yellow fish swims gracefully in a clear blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 442:
+TRUE:      a school of colorful fish swims gracefully over a vibrant coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 443:
+TRUE:      a vibrant coral reef teems with colorful fish and diverse coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 444:
+TRUE:      a vibrant underwater scene with colorful fish swimming around a coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 445:
+TRUE:      a vibrant underwater scene with colorful fish swimming near a coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 446:
+TRUE:      boxers engage in a close - up boxing match, showcasing their skills and determination.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 447:
+TRUE:      a woman in boxing gear stands in a boxing ring, preparing to box.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 448:
+TRUE:      a man practices boxing in a gym with a punching bag.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 449:
+TRUE:      a shirtless man practices boxing in a gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 450:
+TRUE:      a boxer practices in a gym, focusing on his punching technique.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 451:
+TRUE:      a person ' s hand reaches towards a bunch of bananas on a kitchen counter.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 452:
+TRUE:      bananas float in a clear liquid with bubbles forming around them.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 453:
+TRUE:      three ripe bananas are displayed against a white background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 454:
+TRUE:      two ripe bananas lie on a green surface, possibly grass, with visible brown spots.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 455:
+TRUE:      a bunch of ripe bananas with some brown spots are displayed in a market stall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 456:
+TRUE:      a cat lies on a white surface, occasionally moving its head.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 457:
+TRUE:      a cat sits on a red surface, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 458:
+TRUE:      a cat sits against a vibrant red background, gazing intently.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 459:
+TRUE:      a cat sits calmly, gazing directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 460:
+TRUE:      a white cat wearing a red bandana stands on its hind legs in a room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 461:
+TRUE:      a person plays a red acoustic guitar in a room with colorful posters on the wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 462:
+TRUE:      a person plays an electric guitar in a room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 463:
+TRUE:      a person plays an acoustic guitar in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 464:
+TRUE:      a person plays an acoustic guitar against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 465:
+TRUE:      a person plays an acoustic guitar in a field of colorful flowers.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 466:
+TRUE:      a cityscape with buildings and a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 467:
+TRUE:      a cityscape with tall buildings under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 468:
+TRUE:      a bustling cityscape with tall buildings and a mix of residential and commercial structures.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 469:
+TRUE:      aerial view of a cityscape with tall buildings and a construction crane.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 470:
+TRUE:      a bustling cityscape with tall skyscrapers and a river running through it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 471:
+TRUE:      two men sit at a dinner table, engaged in conversation and enjoying their meal.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 472:
+TRUE:      two medical professionals engage in a discussion in a modern office setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 473:
+TRUE:      scientists discuss in a laboratory filled with pipes and machinery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 474:
+TRUE:      two women sit at a table, sharing drinks and conversation.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 475:
+TRUE:      a couple sits closely together, sharing a quiet moment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 476:
+TRUE:      a close - up of a vibrant red mushroom with a white stem in a lush green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 477:
+TRUE:      a close - up of a mushroom growing among fallen leaves in a forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 478:
+TRUE:      a close - up of colorful mushrooms surrounded by autumn leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 479:
+TRUE:      a close - up of a red mushroom growing in a forest with fallen leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 480:
+TRUE:      a cluster of small, yellow mushrooms grows on a dark, moss - covered log in a forest setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 481:
+TRUE:      a sleek, modern car drives on a wide, empty road under a cloudy sky.
+PREDICTED: a person plays a grassy field in a clear blue sky.
+
+Sample 482:
+TRUE:      a blue electric car is displayed in a showroom.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 483:
+TRUE:      a white suv drives along a winding road surrounded by greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 484:
+TRUE:      three luxury cars drive down a tree - lined street.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 485:
+TRUE:      a blue race car speeds down a winding road, attracting a crowd of spectators.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 486:
+TRUE:      a blue jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 487:
+TRUE:      jellyfish float gracefully in a deep blue ocean, their translucent bodies illuminated by a soft, ambient light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 488:
+TRUE:      a glowing jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 489:
+TRUE:      a yellow object is suspended in a dark blue environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 490:
+TRUE:      a jellyfish swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 491:
+TRUE:      a man practices martial arts on a sunny day in an urban setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 492:
+TRUE:      a person performs a handstand on a rooftop under an overcast sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 493:
+TRUE:      a person in a black dress performs a dance routine on a white background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 494:
+TRUE:      a person stands in a minimalist setting with geometric shapes on the wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 495:
+TRUE:      a person performs a handstand on a paved surface with a concrete wall in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 496:
+TRUE:      a vibrant yellow cocktail garnished with a pineapple slice and a cherry sits against a black background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 497:
+TRUE:      a vibrant green cocktail with a lime wedge and a red rim on a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 498:
+TRUE:      tomato juice is being poured into a glass, with fresh tomatoes and herbs in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 499:
+TRUE:      a glass of beer is being poured into a wine glass.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 500:
+TRUE:      a clear glass is being filled with a red liquid, possibly wine, against a plain white background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 501:
+TRUE:      a small dog lies on a beige couch, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 502:
+TRUE:      a small white dog with brown patches explores a grassy field with fallen leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 503:
+TRUE:      a small, fluffy puppy sits on a grassy field, looking around curiously.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 504:
+TRUE:      a curious dog with a white and brown coat looks directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 505:
+TRUE:      two dogs playfully interact in a grassy field with a mountainous backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 506:
+TRUE:      a drummer ' s feet and drum set are shown from above.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 507:
+TRUE:      a drummer plays a drum set in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 508:
+TRUE:      a person plays a drum set in a dark room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 509:
+TRUE:      a drummer plays a drum set from an overhead perspective.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 510:
+TRUE:      a drummer plays a drum set in a room with a red floor.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 511:
+TRUE:      fireworks light up the night sky over a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 512:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and smoke.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 513:
+TRUE:      fireworks light up the night sky with streaks of pink and white.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 514:
+TRUE:      fireworks light up the night sky with streaks of red and orange.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 515:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 516:
+TRUE:      people walk along a city street under clear daylight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 517:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 518:
+TRUE:      people walk through a covered walkway with a sign reading ' royal opera house '.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 519:
+TRUE:      a crowd of people walking in a busy street.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 520:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 521:
+TRUE:      sunlight filters through dense forest canopy, creating a serene and tranquil atmosphere.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 522:
+TRUE:      a dense forest with tall trees and a bright sky peeking through the canopy.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 523:
+TRUE:      a dense forest with tall trees and a misty atmosphere.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 524:
+TRUE:      a dense forest with tall trees and a clear blue sky above.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 525:
+TRUE:      a serene forest scene with tall trees and lush green leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 526:
+TRUE:      colorful hot air balloons float in a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 527:
+TRUE:      a colorful hot air balloon floats gracefully against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 528:
+TRUE:      a hot air balloon floats above rocky formations against a pink sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 529:
+TRUE:      hot air balloons float gracefully against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 530:
+TRUE:      three colorful hot air balloons float against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 531:
+TRUE:      a large shark swims gracefully through the blue ocean, surrounded by smaller fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 532:
+TRUE:      a large shark swims gracefully through the blue ocean, surrounded by smaller fish and coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 533:
+TRUE:      a large shark swims gracefully through deep blue ocean waters.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 534:
+TRUE:      a large shark swims gracefully in the deep blue ocean, surrounded by smaller fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 535:
+TRUE:      a shark swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 536:
+TRUE:      a woman runs on a dirt path in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 537:
+TRUE:      two men jog along a waterfront promenade, listening to music and smiling.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 538:
+TRUE:      a couple runs on a sandy beach with headphones on.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 539:
+TRUE:      a person runs on a sports field with mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 540:
+TRUE:      a woman runs along a beach with headphones on, enjoying the ocean view.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 541:
+TRUE:      a freshly baked pizza with mushrooms and cheese sits on a metal surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 542:
+TRUE:      a person wearing black gloves applies sauce to a pizza with pepperoni slices.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 543:
+TRUE:      a person is cutting a pizza with a knife.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 544:
+TRUE:      a close - up of a pizza with various toppings.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 545:
+TRUE:      a person prepares a pizza with pepperoni and cheese on a wooden table.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 546:
+TRUE:      an elephant walks through a lush green forest, surrounded by dense foliage and trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 547:
+TRUE:      elephants drink water from a river in a lush green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 548:
+TRUE:      elephants walk through tall grass in a savannah landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 549:
+TRUE:      a large elephant walks through a grassy field under a partly cloudy sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 550:
+TRUE:      elephants walk along a dirt path in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 551:
+TRUE:      a snow - covered mountain landscape with trees and clouds in the distance.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 552:
+TRUE:      a mountain range with clouds moving across the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 553:
+TRUE:      a winding river flows through a lush green valley with snow - capped mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 554:
+TRUE:      a serene mountainous landscape with lush greenery and towering cliffs.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 555:
+TRUE:      snow - capped mountains with evergreen trees in the foreground.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 556:
+TRUE:      a large airplane taxis on a runway with its landing gear extended.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 557:
+TRUE:      a blue and white airplane taxis on a runway.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 558:
+TRUE:      a large airplane flies through a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 559:
+TRUE:      a red airplane flies through a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 560:
+TRUE:      a large airplane flies through a clear blue sky with scattered clouds.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 561:
+TRUE:      a sea turtle swims gracefully over a coral reef in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 562:
+TRUE:      a sea turtle swims gracefully through the clear blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 563:
+TRUE:      a sea turtle swims gracefully over a colorful coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 564:
+TRUE:      a sea turtle swims gracefully over a rocky underwater landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 565:
+TRUE:      a sea turtle swims gracefully over a colorful coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 566:
+TRUE:      a person cuts a watermelon with a knife.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 567:
+TRUE:      a hand holds a watermelon slice, revealing its juicy interior.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 568:
+TRUE:      a person cuts a watermelon on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 569:
+TRUE:      a person ' s hand places a knife on a watermelon on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 570:
+TRUE:      a person examines a large watermelon in a store.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 571:
+TRUE:      horses graze in a lush green field under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 572:
+TRUE:      horses graze in a lush green field under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 573:
+TRUE:      a horse stands in a barren field, its mane blowing in the wind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 574:
+TRUE:      a horse grazes in a lush green field with majestic mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 575:
+TRUE:      a horse grazes peacefully in a lush, autumnal field with majestic mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 576:
+TRUE:      a car drives on a highway under a bridge with a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 577:
+TRUE:      a narrow road winds through a lush, green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 578:
+TRUE:      a vehicle drives along a winding road in a scenic mountainous area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 579:
+TRUE:      a car drives along a winding road surrounded by autumn trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 580:
+TRUE:      a car drives along a winding road in a scenic landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 581:
+TRUE:      a white yacht sails across a calm body of water under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 582:
+TRUE:      a large cruise ship sails across a calm body of water, leaving a trail of wake behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 583:
+TRUE:      a large blue and white tugboat sails on a river with tall buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 584:
+TRUE:      a large cargo ship sails across the ocean, leaving a trail of white foam behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 585:
+TRUE:      a large cargo ship travels across a vast body of water, leaving a trail of wake behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 586:
+TRUE:      a panda bear is eating bamboo in a forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 587:
+TRUE:      a panda bear is lying on the ground and eating leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 588:
+TRUE:      a panda bear is eating bamboo leaves in a zoo.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 589:
+TRUE:      a panda lies on the grass, surrounded by greenery and fallen leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 590:
+TRUE:      a panda bear stands on grass, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 591:
+TRUE:      a powerful waterfall cascades down rocky cliffs into a frothy white spray.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 592:
+TRUE:      a powerful waterfall cascades down a rocky cliff, surrounded by lush greenery and mist.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 593:
+TRUE:      clear water flows over rocks in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 594:
+TRUE:      foamy water flows over rocks in a river.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 595:
+TRUE:      rapidly flowing water over rocks in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 596:
+TRUE:      a small rabbit stands on a green mat, eating food.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 597:
+TRUE:      two rabbits sit in separate cages, one white and one brown, with hay inside.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 598:
+TRUE:      two rabbits graze on lush green grass in a serene park setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 599:
+TRUE:      a white rabbit stands in a grassy field, nibbling on green grass and white flowers.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 600:
+TRUE:      a rabbit grazes on green grass in a lush garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 601:
+TRUE:      a slice of layered cake with a creamy white frosting and a red jam filling is displayed on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 602:
+TRUE:      a person uses a knife to cut into a cake with pink and white frosting and berries on top.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 603:
+TRUE:      a slice of layered cake with pink and yellow layers and a raspberry on top.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 604:
+TRUE:      a hand uses a spoon to scoop a slice of chocolate cake with a creamy filling.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 605:
+TRUE:      a hand uses a knife to cut into a round cake with blueberries and green leaves on top.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 606:
+TRUE:      a person dances in a spacious room with large windows.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 607:
+TRUE:      a person in a black dress performs a dance move against a purple background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 608:
+TRUE:      a person performs a ballet dance routine in a studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 609:
+TRUE:      a woman dances gracefully in a misty, abandoned building.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 610:
+TRUE:      a person performs a graceful dance in a dark setting, wearing a flowing dress and holding a decorative object.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 611:
+TRUE:      a ginger cat lies on a black surface, eyes closed, appearing relaxed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 612:
+TRUE:      a cat sits on a snowy surface, looking around attentively.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 613:
+TRUE:      a gray and white cat sits on green grass, looking around attentively.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 614:
+TRUE:      a ginger cat lies on a striped blanket, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 615:
+TRUE:      a cat with striking green eyes and a sleek coat stands alert in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 616:
+TRUE:      a serene beach scene with clear blue water and rocky shoreline under a bright sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 617:
+TRUE:      people enjoy a sunny day at the beach with clear blue water and sandy shores.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 618:
+TRUE:      aerial view of ocean waves crashing onto a sandy beach.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 619:
+TRUE:      golden waves gently lap against a sandy shore at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 620:
+TRUE:      a serene coastal landscape with clear blue waters and sandy beaches.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 621:
+TRUE:      a man in a tuxedo plays a classical guitar.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 622:
+TRUE:      a person plays an electric guitar in a room with a plain wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 623:
+TRUE:      a person plays a blue electric guitar in a plain room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 624:
+TRUE:      a person plays an electric guitar in a plain room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 625:
+TRUE:      a person plays an electric bass guitar in a room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 626:
+TRUE:      a large airplane is flying in the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 627:
+TRUE:      a large airplane descends towards a runway under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 628:
+TRUE:      a large white airplane with blue accents is taxiing on a runway.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 629:
+TRUE:      a large airplane taxis on a runway with a grassy field in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 630:
+TRUE:      a large white airplane with blue markings is flying in the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 631:
+TRUE:      a rocky cliff face under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 632:
+TRUE:      a majestic mountain range bathed in the warm glow of a setting sun.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 633:
+TRUE:      a serene winter landscape with snow - covered trees and mountains under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 634:
+TRUE:      sunlight filters through clouds over rugged mountain terrain.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 635:
+TRUE:      a serene mountain landscape with clouds moving across the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 636:
+TRUE:      a large shark swims gracefully through the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 637:
+TRUE:      a large shark swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 638:
+TRUE:      a large shark swims gracefully in the clear blue ocean, accompanied by a small striped fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 639:
+TRUE:      a large shark swims gracefully over sandy ocean floor.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 640:
+TRUE:      a large shark swims gracefully through the deep blue ocean, surrounded by smaller fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 641:
+TRUE:      colorful tropical fish swim near vibrant coral in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 642:
+TRUE:      a vibrant coral reef teems with colorful fish and diverse coral formations.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 643:
+TRUE:      a clownfish swims gracefully among the tentacles of a large white anemone.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 644:
+TRUE:      a clownfish swims among the tentacles of a coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 645:
+TRUE:      a clownfish swims gracefully among vibrant coral reefs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 646:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 647:
+TRUE:      a person plays a keyboard in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 648:
+TRUE:      a person plays a digital piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 649:
+TRUE:      a person ' s hands play the piano keys.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 650:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 651:
+TRUE:      a vibrant fireworks display illuminates the night sky over a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 652:
+TRUE:      fireworks explode in the night sky, creating a dazzling display of light and color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 653:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 654:
+TRUE:      fireworks light up the night sky over a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 655:
+TRUE:      fireworks explode in the night sky, creating a dazzling display of light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 656:
+TRUE:      a person uses a pizza cutter to slice a pizza with various toppings.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 657:
+TRUE:      a freshly baked pizza with melted cheese sits on a wooden board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 658:
+TRUE:      a hand holds a slice of pizza with melted cheese and herbs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 659:
+TRUE:      a hand holds a slice of pizza with melted cheese and tomato sauce.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 660:
+TRUE:      a pizza is being cooked on a stove with a flame applied to it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 661:
+TRUE:      a bustling cityscape at dusk, with tall buildings and illuminated streets.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 662:
+TRUE:      aerial view of a cityscape at dusk, with tall buildings and illuminated streets.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 663:
+TRUE:      a city skyline at sunset with tall buildings and a crane in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 664:
+TRUE:      a modern office building with a white roof and blue windows is surrounded by a grassy field and a road with vehicles.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 665:
+TRUE:      a cityscape at dusk with tall buildings and a river running through it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 666:
+TRUE:      a person runs along a dirt path in a forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 667:
+TRUE:      a woman runs outdoors with her hair flying in the wind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 668:
+TRUE:      a woman runs on a blue track in an outdoor stadium.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 669:
+TRUE:      a person runs along a paved path in a park with green grass and trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 670:
+TRUE:      a person runs along a paved path surrounded by greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 671:
+TRUE:      a brown and white dog with a pink collar stands outdoors in a grassy area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 672:
+TRUE:      a golden retriever dog eagerly sniffs and licks a mound of dog food.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 673:
+TRUE:      two dogs stand in a grassy field, one black and one white.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 674:
+TRUE:      a dog sits attentively against a clear sky background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 675:
+TRUE:      a black dog sits on a white surface, looking up.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 676:
+TRUE:      a shirtless man performs a workout routine outdoors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 677:
+TRUE:      a person practices boxing in a gym with a punching bag.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 678:
+TRUE:      two individuals practice boxing on a sandy beach at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 679:
+TRUE:      a person practices boxing in a gym with a punching bag.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 680:
+TRUE:      a person practices boxing in a dimly lit gym.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 681:
+TRUE:      a car drives on a scenic highway with lush green hills and a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 682:
+TRUE:      a car drives on a scenic highway with lush green hills and a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 683:
+TRUE:      a car drives on a wide highway under a blue sky with fluffy clouds.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 684:
+TRUE:      a car drives on a rural road under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 685:
+TRUE:      a car drives along a winding mountain road with lush greenery and distant mountains.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 686:
+TRUE:      a large cruise ship sails on calm blue waters near a small island.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 687:
+TRUE:      a group of boats float on calm, turquoise waters.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 688:
+TRUE:      a sleek white yacht speeds across the turquoise waters, leaving a trail of white foam behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 689:
+TRUE:      a white yacht speeds across the deep blue ocean, leaving a trail of white foam behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 690:
+TRUE:      a large cruise ship sails across a calm body of water near a cityscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 691:
+TRUE:      two elephants stand in a lush green field, interacting with each other.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 692:
+TRUE:      elephants walk across a lush green field with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 693:
+TRUE:      an elephant stands in a grassy field, facing the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 694:
+TRUE:      an elephant stands in a grassy field under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 695:
+TRUE:      elephants walk across a grassy savannah with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 696:
+TRUE:      two motorcyclists ride on a wet road with cars behind them.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 697:
+TRUE:      a person rides a motorcycle in an urban setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 698:
+TRUE:      a person rides a motorcycle around cones in an outdoor setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 699:
+TRUE:      a motorcyclist performs a wheelie on a paved road in a dry, desert - like environment.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 700:
+TRUE:      two motorcyclists race on a track, leaning into turns.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 701:
+TRUE:      a serene waterfall cascades down rocky cliffs into a misty pool.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 702:
+TRUE:      water flows over rocks, creating a frothy, bubbling effect.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 703:
+TRUE:      water flows over a rocky surface with green moss.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 704:
+TRUE:      a serene waterfall cascades into a calm lake surrounded by lush greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 705:
+TRUE:      a powerful waterfall cascades down a rocky cliff, creating a misty spray.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 706:
+TRUE:      a fluffy rabbit stands on its hind legs, grooming itself.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 707:
+TRUE:      a small, fluffy rabbit sits calmly in a white container, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 708:
+TRUE:      a gray rabbit stands on a carpeted floor, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 709:
+TRUE:      a small rabbit eats grass in a white bowl.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 710:
+TRUE:      a fluffy white and orange rabbit eats green leaves on a white surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 711:
+TRUE:      sunlight filters through dense forest foliage, casting dappled light on vibrant green and yellow leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 712:
+TRUE:      a large tree stands by a serene lake, its branches reaching out towards the water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 713:
+TRUE:      snow - covered trees sway gently in a dense forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 714:
+TRUE:      tall trees stand in a dense forest under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 715:
+TRUE:      sunlight filters through tall trees in a dense forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 716:
+TRUE:      a white sports car drives on a road with trees and a billboard in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 717:
+TRUE:      a sleek, yellow and black sports car speeds along a winding road.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 718:
+TRUE:      a sleek black bmw m3 sports car drives on a highway at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 719:
+TRUE:      a blue sports car drives along a winding road with a rocky cliff in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 720:
+TRUE:      a sleek black sports car is parked in a spacious, well - lit garage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 721:
+TRUE:      a glowing blue jellyfish swims in the dark underwater environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 722:
+TRUE:      a pink jellyfish swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 723:
+TRUE:      a large, glowing blue jellyfish swims gracefully in the ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 724:
+TRUE:      a serene underwater scene with floating jellyfishes in a dark blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 725:
+TRUE:      a vibrant, colorful coral reef with intricate details and a gradient of pink and blue hues.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 726:
+TRUE:      a vibrant sunflower blooms in a field under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 727:
+TRUE:      a sunflower sways gently in a field bathed in golden sunlight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 728:
+TRUE:      a vibrant field of colorful tulips and hyacinths in full bloom.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 729:
+TRUE:      a vibrant garden filled with blooming pink azaleas.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 730:
+TRUE:      a vibrant pink flower blooms in a lush green field.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 731:
+TRUE:      a person wearing headphones poses against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 732:
+TRUE:      a person smiles outdoors in a park during sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 733:
+TRUE:      a person sits outdoors, looking around thoughtfully.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 734:
+TRUE:      a person with short hair and a white shirt stands against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 735:
+TRUE:      a man in a plaid shirt smiles warmly.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 736:
+TRUE:      a vibrant cocktail with a slice of orange in a glass against a black background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 737:
+TRUE:      a hand places a lime slice on a glass of iced water with mint leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 738:
+TRUE:      a hand places a garnish on a colorful cocktail.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 739:
+TRUE:      a vibrant blue and green layered drink with ice cubes and a lime slice on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 740:
+TRUE:      a blue cocktail with ice and a lemon wedge in a glass on a dark surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 741:
+TRUE:      a panda sits in a lush green forest, grooming itself.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 742:
+TRUE:      a panda sits and eats bamboo in a zoo enclosure.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 743:
+TRUE:      a panda bear eats bamboo leaves in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 744:
+TRUE:      a panda bear eats bamboo leaves in a zoo enclosure.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 745:
+TRUE:      a panda bear sits and looks around in a zoo enclosure.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 746:
+TRUE:      a hand reaches out to pick a bunch of ripe bananas from a market display.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 747:
+TRUE:      a hand peels a banana on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 748:
+TRUE:      a bunch of ripe bananas are placed on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 749:
+TRUE:      a hand holds a peeled banana against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 750:
+TRUE:      a banana floats in water, creating bubbles and ripples.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 751:
+TRUE:      a hand cuts a watermelon into slices on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 752:
+TRUE:      a close - up of a red, textured object being cut with a knife.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 753:
+TRUE:      a person uses a knife to cut a watermelon into slices.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 754:
+TRUE:      a close - up of a sliced watermelon with vibrant red flesh and green rind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 755:
+TRUE:      a person cuts a watermelon into slices on a cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 756:
+TRUE:      two horses pull a sled through a snowy landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 757:
+TRUE:      a white horse grazes in a grassy field with other horses in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 758:
+TRUE:      horses gallop across a sandy beach with a grassy hill in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 759:
+TRUE:      a herd of horses stands in a snowy field under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 760:
+TRUE:      horses graze in a vast, green field with yellow wildflowers.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 761:
+TRUE:      a small, orange mushroom with a textured cap stands against a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 762:
+TRUE:      a close - up of a pink mushroom growing in mossy green vegetation.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 763:
+TRUE:      a dense cluster of vibrant yellow mushrooms with a dark background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 764:
+TRUE:      pink mushrooms grow on a mossy rock in a dark forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 765:
+TRUE:      a vibrant purple mushroom grows amidst lush green moss in a forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 766:
+TRUE:      a skier glides down a snowy slope with majestic mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 767:
+TRUE:      a skier glides down a snowy slope, leaving a trail of snow behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 768:
+TRUE:      people ski down a snowy slope with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 769:
+TRUE:      a person snowboarding down a snowy slope with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 770:
+TRUE:      a skier performs a jump in a snowy forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 771:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 772:
+TRUE:      people walk along a busy city street at night under bright lights.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 773:
+TRUE:      people walk along a city street under bright evening lights.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 774:
+TRUE:      people gather outside a nightclub under a large sign.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 775:
+TRUE:      people walk along a busy city street at night.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 776:
+TRUE:      a woman and a young girl are engaged in a cleaning activity in a kitchen.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 777:
+TRUE:      a couple sits at a table, each using a smartphone.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 778:
+TRUE:      a man and a woman sit closely together, looking at a tablet screen.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 779:
+TRUE:      two women sit on a couch, engaged in a conversation while holding coffee mugs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 780:
+TRUE:      a man and a woman are having a conversation in an office setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 781:
+TRUE:      two birds perch on a leafy branch in a lush green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 782:
+TRUE:      a colorful hummingbird perches on a branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 783:
+TRUE:      a blue and white bird perches on a branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 784:
+TRUE:      a vibrant parrot perches on a branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 785:
+TRUE:      a pink parrot perches on a branch, preening its feathers.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 786:
+TRUE:      a sea turtle swims gracefully near a coral reef in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 787:
+TRUE:      a sea turtle swims gracefully over a sandy ocean floor.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 788:
+TRUE:      a green sea turtle swims gracefully through clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 789:
+TRUE:      a turtle swims in the dark water with its head and front flippers visible.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 790:
+TRUE:      a sea turtle swims near the sandy bottom of the ocean, surrounded by small fish.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 791:
+TRUE:      a person plays a drum set in a room with a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 792:
+TRUE:      a person plays a drum set in a room with a lamp and carpeted floor.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 793:
+TRUE:      a person plays a drum set in a studio with a pink and green background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 794:
+TRUE:      a person plays a drum set in a room with a microphone.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 795:
+TRUE:      a drummer plays a drum set from an overhead perspective.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 796:
+TRUE:      a colorful hot air balloon floats above a vast desert landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 797:
+TRUE:      people gather in a field to watch hot air balloons ascend.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 798:
+TRUE:      colorful hot air balloons float gracefully against a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 799:
+TRUE:      a colorful hot air balloon floats against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 800:
+TRUE:      a vibrant sky filled with colorful hot air balloons against a clear blue backdrop.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 801:
+TRUE:      a colorful hot air balloon floats gracefully against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 802:
+TRUE:      a colorful hot air balloon floats above a hazy, golden sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 803:
+TRUE:      a colorful hot air balloon floats gracefully against a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 804:
+TRUE:      colorful hot air balloons float gracefully against a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 805:
+TRUE:      a colorful hot air balloon floats above a rural landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 806:
+TRUE:      a person plays an acoustic guitar against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 807:
+TRUE:      a person plays an acoustic guitar in a dark setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 808:
+TRUE:      a person plays an acoustic guitar outdoors under a tree.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 809:
+TRUE:      a young man plays an acoustic guitar in a park near a pond.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 810:
+TRUE:      a person plays an electric guitar against a plain background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 811:
+TRUE:      a large ship sails across a calm blue sea with a mountainous backdrop under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 812:
+TRUE:      a large cargo ship sails across a calm body of water at sunset, with a bridge and hills in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 813:
+TRUE:      a large, rusty ship sits in the ocean under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 814:
+TRUE:      a large cargo ship travels across a body of water, leaving a trail of wake behind it.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 815:
+TRUE:      a sailboat gently floats on calm waters with distant mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 816:
+TRUE:      a large whale shark swims gracefully through the clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 817:
+TRUE:      two sharks swim gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 818:
+TRUE:      a large shark swims gracefully in clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 819:
+TRUE:      a dolphin swims gracefully through the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 820:
+TRUE:      a shark swims gracefully through the clear blue water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 821:
+TRUE:      a hand holds a banana on a wooden cutting board.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 822:
+TRUE:      a peeled banana lies on a white surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 823:
+TRUE:      a bunch of bananas and two oranges are placed on a white surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 824:
+TRUE:      a peeled banana lies on a white surface, partially peeled and showing its inner flesh.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 825:
+TRUE:      a person holds a bunch of bananas on a wooden surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 826:
+TRUE:      seagulls fly and swim in a calm lake at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 827:
+TRUE:      two colorful birds perch on a branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 828:
+TRUE:      seagulls soar gracefully over a calm sea, their wings spread wide.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 829:
+TRUE:      a hummingbird feeds on nectar from a vibrant red flower.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 830:
+TRUE:      a vibrant green parrot perches on a branch amidst blooming red flowers against a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 831:
+TRUE:      an orange tabby cat explores a snowy landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 832:
+TRUE:      a black cat with striking yellow eyes sits calmly in a lush, green environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 833:
+TRUE:      a cat rests on a wooden surface, stretching its limbs.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 834:
+TRUE:      a cat wearing a sweater lies on a soft surface, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 835:
+TRUE:      a cat with a white and brown coat sits calmly, its eyes half - closed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 836:
+TRUE:      a white car drives along a winding road surrounded by greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 837:
+TRUE:      a black car drives on a snowy road with trees lining the sides.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 838:
+TRUE:      a black mercedes - benz suv drives on a winding road surrounded by trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 839:
+TRUE:      a yellow sports car drives through a dimly lit parking garage at night.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 840:
+TRUE:      a white sports car drives on a paved road with cones marking a course.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 841:
+TRUE:      a serene beach scene with clear blue skies and gentle waves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 842:
+TRUE:      people swim in clear turquoise water near a sandy beach.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 843:
+TRUE:      a serene beach scene with gentle waves lapping against the shore.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 844:
+TRUE:      a small boat floats on clear blue water near a rocky coastline.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 845:
+TRUE:      a rocky beach with a large archway in the distance under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 846:
+TRUE:      a white jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 847:
+TRUE:      a translucent, glowing jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 848:
+TRUE:      a glowing jellyfish swims gracefully in the deep blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 849:
+TRUE:      a translucent jellyfish swims gracefully in the dark ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 850:
+TRUE:      a glowing jellyfish swims gracefully in a dark, illuminated underwater environment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 851:
+TRUE:      a person performs a workout routine in a gym setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 852:
+TRUE:      a person practices ballet in a spacious, well - lit studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 853:
+TRUE:      a person performs a stretching exercise in a well - lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 854:
+TRUE:      a ballerina performs a graceful dance in a spacious studio.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 855:
+TRUE:      a person in a white top and red pants stands against a plain background, performing a dance or exercise routine.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 856:
+TRUE:      a panda sits on a rock, holding a bamboo stalk in its paw.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 857:
+TRUE:      a panda bear sits on the ground and eats bamboo.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 858:
+TRUE:      a panda bear sits on a tree branch and licks its paw.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 859:
+TRUE:      a panda bear is hanging upside down from a tree branch in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 860:
+TRUE:      a panda bear rests its head on a rock in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 861:
+TRUE:      a vibrant display of pink and orange flowers in full bloom.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 862:
+TRUE:      a vibrant red flower with pink and white petals against a green background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 863:
+TRUE:      a pink lotus flower blooms in a pond, with a bee visiting its center.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 864:
+TRUE:      a vibrant sunflower blooms in a sunny field, surrounded by lush green leaves and a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 865:
+TRUE:      pink lilies bloom against a black background, showcasing vibrant petals and green stems.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 866:
+TRUE:      a motorcyclist rides along a city road, navigating through traffic cones.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 867:
+TRUE:      a person rides a motorcycle on a paved road with trees and buildings in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 868:
+TRUE:      a motorcycle is parked on a road with a grassy field and trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 869:
+TRUE:      a person rides a motorcycle on a winding road surrounded by trees.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 870:
+TRUE:      a person rides a blue motorcycle around cones in an open area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 871:
+TRUE:      a man and a woman in white lab coats are engaged in a conversation in a medical or dental office.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 872:
+TRUE:      a couple sits closely together, engaged in a conversation.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 873:
+TRUE:      a doctor and a young girl are having a conversation in a medical setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 874:
+TRUE:      two individuals stand outdoors, one adjusting their hair, both dressed casually.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 875:
+TRUE:      a couple enjoys a movie night at home, sharing popcorn and watching intently.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 876:
+TRUE:      a clear glass of water is being filled with a steady stream of water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 877:
+TRUE:      a hand stirs a vibrant blue cocktail garnished with a lime slice and mint leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 878:
+TRUE:      a red liquid is being poured into a glass jar.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 879:
+TRUE:      red wine is poured into a wine glass against a white background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 880:
+TRUE:      a close - up of a red drink with ice and a lime slice in a glass.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 881:
+TRUE:      a small rabbit sits in tall grass, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 882:
+TRUE:      a group of rabbits gather around a bowl of hay, with one hand reaching in to pet them.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 883:
+TRUE:      a small gray rabbit sits on a wooden post, nibbling on a carrot held by a hand.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 884:
+TRUE:      a small rabbit stands on its hind legs in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 885:
+TRUE:      a fluffy bunny sits on a white surface, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 886:
+TRUE:      two individuals practice boxing in a gym with padded gloves and shorts.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 887:
+TRUE:      two boxers engage in a sparring session in a dimly lit boxing ring.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 888:
+TRUE:      a woman practices boxing in a gym with a punching bag.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 889:
+TRUE:      a man practices boxing in a gym with a focused expression.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 890:
+TRUE:      a person wearing boxing gloves practices punching against a wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 891:
+TRUE:      a person plays a white piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 892:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 893:
+TRUE:      a person plays the piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 894:
+TRUE:      a person plays an electronic keyboard with illuminated buttons.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 895:
+TRUE:      a person plays a piano with their hands.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 896:
+TRUE:      a fluffy dog rests on grass, eyes closed, enjoying a peaceful moment.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 897:
+TRUE:      a black puppy lies on a white surface, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 898:
+TRUE:      a small white dog with a black ear stands on a grassy lawn, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 899:
+TRUE:      a small brown and white dog rests on a soft surface, gazing directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 900:
+TRUE:      a white dog stands in a grassy field, looking around.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 901:
+TRUE:      a hand reaches towards a pizza topped with olives and anchovies.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 902:
+TRUE:      a close - up of a pizza topped with sliced tomatoes.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 903:
+TRUE:      a pizza with various toppings sits in a cardboard box.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 904:
+TRUE:      a large pizza with various toppings sits on a table.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 905:
+TRUE:      a person wearing gloves cuts a pizza with a spatula.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 906:
+TRUE:      clear water gently ripples on a calm beach with distant mountains in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 907:
+TRUE:      rapidly flowing water over rocks in a rocky stream.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 908:
+TRUE:      a serene river flows through a lush forested area under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 909:
+TRUE:      a powerful waterfall cascades over rocky cliffs into a turquoise river, surrounded by lush greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 910:
+TRUE:      a river flows over rocks in a lush green forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 911:
+TRUE:      a person skis down a snowy slope on a clear day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 912:
+TRUE:      a skier descends a snowy slope, leaving a trail of powder behind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 913:
+TRUE:      a skier performs a backflip in the air against a backdrop of snow - covered mountains.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 914:
+TRUE:      a skier glides down a snowy slope, leaving tracks in the pristine snow.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 915:
+TRUE:      a skier descends a snowy slope with a ski lift in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 916:
+TRUE:      a vast, lush valley with towering cliffs and distant mountains under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 917:
+TRUE:      a vast mountain range with snow - capped peaks under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 918:
+TRUE:      a serene canyon with moss - covered rocks and a flowing stream.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 919:
+TRUE:      aerial view of a mountainous landscape with a lake surrounded by rocky terrain.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 920:
+TRUE:      snow - covered mountains with dense forests and clouds in the sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 921:
+TRUE:      a school of vibrant purple fish swims gracefully over a colorful coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 922:
+TRUE:      a clownfish swims among vibrant coral branches in a colorful underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 923:
+TRUE:      a colorful coral reef teems with various fish and marine life.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 924:
+TRUE:      a school of colorful fish swims gracefully in the blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 925:
+TRUE:      a clownfish swims among vibrant coral in a tropical underwater scene.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 926:
+TRUE:      elephants walk across a grassy savannah under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 927:
+TRUE:      elephants graze in a grassy savannah under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 928:
+TRUE:      an elephant stands in a grassy field under a clear sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 929:
+TRUE:      an elephant stands in a grassy field with trees in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 930:
+TRUE:      an elephant walks across a grassy savannah at sunset.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 931:
+TRUE:      aerial view of a modern urban area with mixed - use buildings and greenery.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 932:
+TRUE:      a bustling cityscape with tall buildings and a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 933:
+TRUE:      a city street with tall buildings and a red traffic light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 934:
+TRUE:      a cityscape at dusk with tall buildings and a busy road.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 935:
+TRUE:      a traffic light stands on a city street, with a large building in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 936:
+TRUE:      a person wearing a hat and jacket stands in a dimly lit room with a stained glass window.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 937:
+TRUE:      a person with long hair and a white shirt is looking off to the side.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 938:
+TRUE:      a person with long hair looks into the distance, bathed in sunlight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 939:
+TRUE:      a person adjusts their hat in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 940:
+TRUE:      a person stands against a colorful background, looking directly at the camera.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 941:
+TRUE:      a serene forest path lined with tall trees and lush green foliage.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 942:
+TRUE:      a tree with vibrant green leaves swaying gently in the breeze.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 943:
+TRUE:      tall trees sway in a dense forest under a cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 944:
+TRUE:      a serene forest with tall trees and lush green undergrowth bathed in golden sunlight.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 945:
+TRUE:      tall trees stand in a dense forest with sunlight filtering through the canopy.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 946:
+TRUE:      a cluster of white mushrooms grows on a dark, textured surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 947:
+TRUE:      white mushrooms grow in a forest floor with pine cones and leaves.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 948:
+TRUE:      white mushrooms grow on a moss - covered tree trunk in a forest.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 949:
+TRUE:      small mushrooms grow on a dark, textured surface.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 950:
+TRUE:      a mysterious, glowing blue sphere floats above a barren, rocky landscape.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 951:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 952:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 953:
+TRUE:      people walk along a city street under bright neon lights.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 954:
+TRUE:      people walk along a city street under dim evening light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 955:
+TRUE:      people stand in a large indoor space with a modern design.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 956:
+TRUE:      a horse runs across a rocky field with green grass in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 957:
+TRUE:      horses graze on a lush green hillside under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 958:
+TRUE:      a horse stands near a wooden fence in a natural setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 959:
+TRUE:      horses gallop across a vast, open desert landscape under a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 960:
+TRUE:      horses graze in a lush green field on a sunny day.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 961:
+TRUE:      a car drives on a wide highway with a clear sky above.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 962:
+TRUE:      a car drives on a wide, empty road with lush green hills in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 963:
+TRUE:      a car drives on a wet highway with a cloudy sky above.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 964:
+TRUE:      a car drives on a wide, empty road under a clear blue sky with fluffy clouds.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 965:
+TRUE:      a vehicle travels along a winding mountain road under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 966:
+TRUE:      a sea turtle swims gracefully through the clear blue ocean.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 967:
+TRUE:      a turtle swims gracefully through clear blue water near a sandy bottom with seaweed.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 968:
+TRUE:      a sea turtle swims gracefully through the ocean, its head and flippers visible.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 969:
+TRUE:      a sea turtle swims gracefully over a colorful coral reef.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 970:
+TRUE:      a turtle swims in a shallow pool of water.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 971:
+TRUE:      a person wearing gloves cuts a watermelon on a table.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 972:
+TRUE:      a hand holds a watermelon, showing its green rind.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 973:
+TRUE:      a hand holds a watermelon on a digital scale, adjusting its position.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 974:
+TRUE:      a person examines a large watermelon in a market setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 975:
+TRUE:      a hand points to a large watermelon growing in a garden.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 976:
+TRUE:      a person runs on a track with a grassy field in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 977:
+TRUE:      a person runs on a blue track with trees and a fence in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 978:
+TRUE:      a family walks hand in hand along a paved path in a park - like setting.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 979:
+TRUE:      a man and a child run together on a dirt path in a forested area.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 980:
+TRUE:      a man and a woman run side by side on a red track under a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 981:
+TRUE:      a large airplane taxis on a runway with a colorful design.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 982:
+TRUE:      a large airplane lands on a runway under overcast skies.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 983:
+TRUE:      a large airplane lands on a runway with a wind turbine in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 984:
+TRUE:      a large airplane flies through a clear blue sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 985:
+TRUE:      a large airplane flies through a partly cloudy sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 986:
+TRUE:      a hand holds a fork, cutting into a layered cake on a white plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 987:
+TRUE:      a slice of cake with a cute bear decoration on a plate.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 988:
+TRUE:      a knife slices through a strawberry - flavored cake, revealing its creamy interior.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 989:
+TRUE:      a close - up of a layered cake with white frosting and strawberries on top.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 990:
+TRUE:      a hand uses a piping bag to decorate a layered cake with swirls of cream.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 991:
+TRUE:      a drummer plays a drum set in a dimly lit room.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 992:
+TRUE:      a person plays the drums in a room with a laptop and a bookshelf in the background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 993:
+TRUE:      a drummer plays a drum set in a room with a white wall.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 994:
+TRUE:      a drummer plays a drum set on a stage with a black background.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 995:
+TRUE:      a drummer practices on a drum set with various cymbals and drums.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 996:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 997:
+TRUE:      fireworks explode in the night sky, creating a dazzling display of colors and light.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 998:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+
+Sample 999:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 1000:
+TRUE:      a bright red firework explodes in the night sky.
+PREDICTED: a person plays a grassy field on a clear blue sky.
+

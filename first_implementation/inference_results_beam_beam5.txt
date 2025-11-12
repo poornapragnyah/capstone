@@ -1,0 +1,51 @@
+BLEU Scores (BEAM):
+Overall BLEU: 0.0000
+BLEU-1: 0.3000
+BLEU-2: 0.0545
+BLEU-3: 0.0100
+BLEU-4: 0.0000
+
+================================================================================
+All Predictions:
+================================================================================
+
+Sample 1:
+TRUE:      a drummer plays a drum set in a dimly lit room.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 2:
+TRUE:      a person plays the drums in a room with a laptop and a bookshelf in the background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 3:
+TRUE:      a drummer plays a drum set in a room with a white wall.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 4:
+TRUE:      a drummer plays a drum set on a stage with a black background.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 5:
+TRUE:      a drummer practices on a drum set with various cymbals and drums.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 6:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 7:
+TRUE:      fireworks explode in the night sky, creating a dazzling display of colors and light.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 8:
+TRUE:      fireworks light up the night sky with vibrant colors.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 9:
+TRUE:      fireworks explode in the night sky, creating vibrant displays of light and color.
+PREDICTED: a person plays a city street under a clear blue sky.
+
+Sample 10:
+TRUE:      a bright red firework explodes in the night sky.
+PREDICTED: a person plays a city street under a clear blue sky.
+
